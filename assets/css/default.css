@@ -1,0 +1,12 @@
+#admin-template-modal-iframe .modal-dialog {
+  height: 95%;
+  padding: 0;
+  width: 90%;
+}
+#admin-template-modal-iframe .modal-content {
+  border-radius: 0;
+  height: 95%;
+}
+#admin-template-modal-iframe iframe {
+  width: 100%;
+}
