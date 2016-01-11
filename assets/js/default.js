@@ -35,10 +35,32 @@
 
   var Modal = {
     init: function () {
+      this.initDefaultModal();
       this.initIframeModal();
     },
+    initDefaultModal: function () {
+      jQuery('.admin-modal').click(function() {
+        var targetExpr = '#' + jQuery(this).attr('data-modal-element');
+          title = jQuery(this).attr('title');
+        if (title === undefined) {
+          title = jQuery(this).text();
+        }
+        if (title === undefined) {
+          jQuery(targetExpr).find('.modal-title').html(title);
+        }
+        //jQuery(targetExpr).on('shown.bs.modal', function () {
+        //  var template = jQuery(this),
+        //    contentHeight = Utility.getHeight(template.find('.modal-content')),
+        //    headerHeight = Utility.getHeight(template.find('.modal-header')),
+        //    height = contentHeight - headerHeight;
+        //  template.find('.modal-body').css({'height':height});
+      	//});
+        jQuery(targetExpr).modal({show:true})
+        return false;
+      });
+    },
     initIframeModal: function () {
-      jQuery('.admin-modal-opener-iframe').click(function() {
+      jQuery('.admin-modal-iframe').click(function() {
         var targetExpr = '#admin-template-modal-iframe',
           title = jQuery(this).attr('title');
         if (title === undefined) {
@@ -55,7 +77,7 @@
           template.find('.modal-body').css({'height':height});
           template.find('iframe').height(height).css({'height':height}).prop('height', height);
       	});
-        jQuery('#admin-template-modal-iframe').modal({show:true})
+        jQuery(targetExpr).modal({show:true})
         return false;
       });
     }

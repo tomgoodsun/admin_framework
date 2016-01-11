@@ -1,3 +1,6 @@
+body {
+  padding-top: 70px;
+}
 #admin-template-modal-iframe .modal-dialog {
   height: 95%;
   padding: 0;
