@@ -1,3 +1,8 @@
+var languages = {
+  "TEXT1": "This is test",
+  "TEXT2": "This is test. Number %s."
+};
+
 (function () {
   var Afw = AdminFramework = {
     Utility: {
@@ -46,6 +51,25 @@
           'margin-bottom'
         ];
         return this.calcStyle(elem, props);
+      }
+    },
+
+    Language: {
+      _: function (label) {
+        if (window.languages) {
+          if (languages[label]) {
+            return languages[label];
+          }
+        }
+        return '';
+      },
+      getText: function (label) {
+        return Afw.Language._(label);
+      },
+      sprintf: function () {
+        var label = Array.prototype.shift.apply(arguments),
+          args = [].slice.apply(arguments);
+        return call_user_func_array(sprintf, [Afw.Language._(label), args]);
       }
     },
 
@@ -116,5 +140,8 @@
   jQuery(document).ready(function () {
     Afw.Modal.init();
     Afw.Window.init();
+
+    console.log(Afw.Language.getText('TEXT1'));
+    console.log(Afw.Language.sprintf('TEXT2', 2));
   });
 })();
