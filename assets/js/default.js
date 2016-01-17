@@ -1,5 +1,5 @@
 (function () {
-  var AdminFramework = {
+  var Afw = AdminFramework = {
     Utility: {
       calcStyle: function (elem, props) {
         var result = 0;
@@ -7,6 +7,21 @@
           result += parseInt(elem.css(props[i]).replace('([0-9]+)', '\1'), 10);
         }
         return result;
+      },
+      getDataAttr: function (elem, attrName) {
+        var data = elem.attr('data-afw-' + attrName);
+        if (attrName == 'options') {
+          if (data === undefined) {
+            data = {};
+          } else {
+            data = jQuery.parseJSON(data);
+          }
+        } else {
+          if (data === undefined) {
+            data = null;
+          }
+        }
+        return data;
       },
       getWidth: function (elem) {
         var props = [
@@ -49,13 +64,6 @@
           if (title === undefined) {
             jQuery(targetExpr).find('.modal-title').html(title);
           }
-          //jQuery(targetExpr).on('shown.bs.modal', function () {
-          //  var template = jQuery(this),
-          //    contentHeight = AdminFramework.Utility.getHeight(template.find('.modal-content')),
-          //    headerHeight = AdminFramework.Utility.getHeight(template.find('.modal-header')),
-          //    height = contentHeight - headerHeight;
-          //  template.find('.modal-body').css({'height':height});
-        	//});
           jQuery(targetExpr).modal({show:true})
           return false;
         });
@@ -72,8 +80,8 @@
           jQuery(targetExpr).find('iframe').attr('src', jQuery(this).prop('href'));
           jQuery(targetExpr).on('shown.bs.modal', function () {
             var template = jQuery(this),
-              contentHeight = AdminFramework.Utility.getHeight(template.find('.modal-content')),
-              headerHeight = AdminFramework.Utility.getHeight(template.find('.modal-header')),
+              contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
+              headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
               height = contentHeight - headerHeight;
             template.find('.modal-body').css({'height':height});
             template.find('iframe').height(height).css({'height':height}).prop('height', height);
@@ -82,10 +90,31 @@
           return false;
         });
       }
+    },
+
+    Window: {
+      init: function () {
+        jQuery('a.afw-window').click(function() {
+          var elem = jQuery(this),
+            url = elem.prop('href'),
+            name = elem.prop('name'),
+            features = Afw.Utility.getDataAttr(elem, 'options');
+          if (name === undefined) {
+            name = null;
+          }
+          var featureParams = [];
+          for (var i in features) {
+            featureParams.push(i + '=' + features[i]);
+          }
+          window.open(url, name, featureParams.join(','));
+          return false;
+        });
+      },
     }
   };
 
   jQuery(document).ready(function () {
-    AdminFramework.Modal.init();
+    Afw.Modal.init();
+    Afw.Window.init();
   });
 })();
