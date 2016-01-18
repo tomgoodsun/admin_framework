@@ -143,5 +143,11 @@ var languages = {
 
     console.log(Afw.Language.getText('TEXT1'));
     console.log(Afw.Language.sprintf('TEXT2', 2));
+
+		$('#main-menu').smartmenus({
+			subMenusSubOffsetX: 1,
+			subMenusSubOffsetY: -8
+		});
+
   });
 })();
