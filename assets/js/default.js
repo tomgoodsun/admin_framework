@@ -133,7 +133,7 @@ var languages = {
           window.open(url, name, featureParams.join(','));
           return false;
         });
-      },
+      }
     }
   };
 
