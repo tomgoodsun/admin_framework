@@ -1,7 +1,7 @@
-var languages = {
-  "TEXT1": "This is test",
-  "TEXT2": "This is test. Number %s."
-};
+//var languages = {
+//  "TEXT1": "This is test",
+//  "TEXT2": "This is test. Number %s."
+//};
 
 (function () {
   var Afw = AdminFramework = {
@@ -77,15 +77,17 @@ var languages = {
       init: function () {
         this.initDefaultModal();
         this.initIframeModal();
+        this.initAutoIframeModal();
+        this.initAutoIframeModalAction();
       },
       initDefaultModal: function () {
         jQuery('.afw-modal').click(function() {
           var targetExpr = '#' + jQuery(this).attr('data-modal-element');
             title = jQuery(this).attr('title');
-          if (title === undefined) {
+          if (title) {
             title = jQuery(this).text();
           }
-          if (title === undefined) {
+          if (title) {
             jQuery(targetExpr).find('.modal-title').html(title);
           }
           jQuery(targetExpr).modal({show:true})
@@ -94,45 +96,66 @@ var languages = {
       },
       initIframeModal: function () {
         jQuery('.afw-modal-iframe').click(function() {
-          var targetExpr = '#afw-template-modal-iframe',
-            origin = jQuery(this),
-            title = origin.attr('title'),
-            cookieReload = Afw.Utility.getDataAttr(origin, 'cookie-reload'),
-            elem = jQuery(targetExpr);
-          if (title === undefined) {
+          var origin = jQuery(this),
+            title = origin.attr('title');
+          if (title) {
             title = origin.text();
           }
-          elem.find('.modal-title').html(title);
-          elem.find('iframe').attr('src', '');
-          elem.find('iframe').attr('src', origin.prop('href'));
-          elem.on('shown.bs.modal', function () {
-            var template = jQuery(this),
-              contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
-              headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
-              height = contentHeight - headerHeight;
-            template.find('.modal-body').css({'height':height});
-            template.find('iframe').height(height).css({'height':height}).prop('height', height);
-            if (cookieReload !== undefined) {
-              Cookies.set(cookieReload, 1);
-            }
-          });
-          elem.on('hidden.bs.modal', function () {
-            if (cookieReload !== undefined) {
-              var result = Cookies.get(cookieReload);
-              Cookies.remove(cookieReload);
-              if (result !== null) {
-                location.reload();
-              }
-            }
-          });
-          elem.modal({show:true})
+          Afw.Modal.openIframeModal(origin.prop('href'), title, origin);
           return false;
         });
+      },
+      openIframeModal: function (url, title, origin) {
+        var elem = jQuery('#afw-template-modal-iframe');
+        if (origin) {
+          var cookieReload = Afw.Utility.getDataAttr(origin, 'cookie-reload');
+        }
+        elem.find('.modal-title').html(title);
+        elem.find('iframe').attr('src', '');
+        elem.find('iframe').attr('src', url);
+        elem.on('shown.bs.modal', function () {
+          var template = jQuery(this),
+            contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
+            headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
+            height = contentHeight - headerHeight;
+          template.find('.modal-body').css({'height':height});
+          template.find('iframe').height(height).css({'height':height}).prop('height', height);
+          if (cookieReload) {
+            Cookies.set(cookieReload, 1);
+          }
+        });
+        elem.on('hidden.bs.modal', function () {
+          if (cookieReload) {
+            var result = Cookies.get(cookieReload);
+            Cookies.remove(cookieReload);
+            if (result) {
+              location.reload();
+            }
+          }
+        });
+        elem.modal({show:true})
+        return elem;
+      },
+      initAutoIframeModal: function () {
+        jQuery('.afw-auto-modal-iframe').click(function() {
+          Cookies.set('auto-modal-iframe-url', Afw.Utility.getDataAttr(jQuery(this), 'url'));
+          return true;
+        });
+      },
+      initAutoIframeModalAction: function () {
+        var url = Cookies.get('auto-modal-iframe-url');
+        if (url) {
+          Cookies.remove('auto-modal-iframe-url');
+          Afw.Modal.openIframeModal(url, 'test').modal('show');
+        }
       }
     },
 
     Window: {
       init: function () {
+        this.initOpener();
+      },
+      initOpener: function () {
         jQuery('a.afw-window').click(function() {
           var elem = jQuery(this),
             url = elem.prop('href'),
