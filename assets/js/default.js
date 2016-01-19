@@ -95,22 +95,37 @@ var languages = {
       initIframeModal: function () {
         jQuery('.afw-modal-iframe').click(function() {
           var targetExpr = '#afw-template-modal-iframe',
-            title = jQuery(this).attr('title');
+            origin = jQuery(this),
+            title = origin.attr('title'),
+            cookieReload = Afw.Utility.getDataAttr(origin, 'cookie-reload'),
+            elem = jQuery(targetExpr);
           if (title === undefined) {
-            title = jQuery(this).text();
+            title = origin.text();
           }
-          jQuery(targetExpr).find('.modal-title').html(title);
-          jQuery(targetExpr).find('iframe').attr('src', '');
-          jQuery(targetExpr).find('iframe').attr('src', jQuery(this).prop('href'));
-          jQuery(targetExpr).on('shown.bs.modal', function () {
+          elem.find('.modal-title').html(title);
+          elem.find('iframe').attr('src', '');
+          elem.find('iframe').attr('src', origin.prop('href'));
+          elem.on('shown.bs.modal', function () {
             var template = jQuery(this),
               contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
               headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
               height = contentHeight - headerHeight;
             template.find('.modal-body').css({'height':height});
             template.find('iframe').height(height).css({'height':height}).prop('height', height);
-        	});
-          jQuery(targetExpr).modal({show:true})
+            if (cookieReload !== undefined) {
+              Cookies.set(cookieReload, 1);
+            }
+          });
+          elem.on('hidden.bs.modal', function () {
+            if (cookieReload !== undefined) {
+              var result = Cookies.get(cookieReload);
+              Cookies.remove(cookieReload);
+              if (result !== null) {
+                location.reload();
+              }
+            }
+          });
+          elem.modal({show:true})
           return false;
         });
       }
@@ -141,13 +156,16 @@ var languages = {
     Afw.Modal.init();
     Afw.Window.init();
 
-    console.log(Afw.Language.getText('TEXT1'));
-    console.log(Afw.Language.sprintf('TEXT2', 2));
+    //console.log(Afw.Language.getText('TEXT1'));
+    //console.log(Afw.Language.sprintf('TEXT2', 2));
+    //Cookies.remove('test');
+    //console.log(Cookies.get('test'));
+    //Cookies.set('test', 1);
 
-		$('#main-menu').smartmenus({
-			subMenusSubOffsetX: 1,
-			subMenusSubOffsetY: -8
-		});
+    $('#main-menu').smartmenus({
+      subMenusSubOffsetX: 1,
+      subMenusSubOffsetY: -8
+    });
 
   });
 })();
