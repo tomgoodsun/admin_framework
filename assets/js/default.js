@@ -101,18 +101,30 @@
           if (title) {
             title = origin.text();
           }
-          Afw.Modal.openIframeModal(origin.prop('href'), title, origin);
+          Afw.Modal.openIframeModal(origin.prop('href'), title, origin, origin.hasClass('afw-modal-use-iframe-title'));
           return false;
         });
       },
-      openIframeModal: function (url, title, origin) {
-        var elem = jQuery('#afw-template-modal-iframe');
+      openIframeModal: function (url, title, origin, useContentTitle) {
+        var elem = jQuery('#afw-template-modal-iframe'),
+          iframe = elem.find('iframe');
         if (origin) {
           var cookieReload = Afw.Utility.getDataAttr(origin, 'cookie-reload');
         }
+        elem.find('.modal-title').html('');
         elem.find('.modal-title').html(title);
-        elem.find('iframe').attr('src', '');
-        elem.find('iframe').attr('src', url);
+        iframe.attr('src', '');
+        iframe.attr('src', url);
+        if (useContentTitle) {
+          iframe.on('load', function () {
+            try {
+              var title = jQuery(this).contents()[0].title;
+              jQuery('#afw-template-modal-iframe .modal-title').html(title);
+            } catch (e) {
+              console.log(e);
+            }
+          });
+        }
         elem.on('shown.bs.modal', function () {
           var template = jQuery(this),
             contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
@@ -140,7 +152,8 @@
         jQuery('.afw-auto-modal-iframe').click(function() {
           var options = {
             'url': Afw.Utility.getDataAttr(jQuery(this), 'url'),
-            'name': Afw.Utility.getDataAttr(jQuery(this), 'name')
+            'name': Afw.Utility.getDataAttr(jQuery(this), 'name'),
+            'useContentTitle': jQuery(this).hasClass('afw-modal-use-iframe-title')
           };
           Cookies.set('auto-modal-iframe', JSON.stringify(options));
           return true;
@@ -151,7 +164,7 @@
         if (options) {
           options = JSON.parse(options);
           Cookies.remove('auto-modal-iframe');
-          Afw.Modal.openIframeModal(options.url, options.name).modal('show');
+          Afw.Modal.openIframeModal(options.url, options.name, null, options.useContentTitle).modal('show');
         }
       }
     },
