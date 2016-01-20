@@ -90,7 +90,7 @@
           if (title) {
             jQuery(targetExpr).find('.modal-title').html(title);
           }
-          jQuery(targetExpr).modal({show:true})
+          jQuery(targetExpr).modal({show:true});
           return false;
         });
       },
@@ -133,20 +133,25 @@
             }
           }
         });
-        elem.modal({show:true})
+        elem.modal({show:true});
         return elem;
       },
       initAutoIframeModal: function () {
         jQuery('.afw-auto-modal-iframe').click(function() {
-          Cookies.set('auto-modal-iframe-url', Afw.Utility.getDataAttr(jQuery(this), 'url'));
+          var options = {
+            'url': Afw.Utility.getDataAttr(jQuery(this), 'url'),
+            'name': Afw.Utility.getDataAttr(jQuery(this), 'name')
+          };
+          Cookies.set('auto-modal-iframe', JSON.stringify(options));
           return true;
         });
       },
       initAutoIframeModalAction: function () {
-        var url = Cookies.get('auto-modal-iframe-url');
-        if (url) {
-          Cookies.remove('auto-modal-iframe-url');
-          Afw.Modal.openIframeModal(url, 'test').modal('show');
+        var options = Cookies.get('auto-modal-iframe');
+        if (options) {
+          options = JSON.parse(options);
+          Cookies.remove('auto-modal-iframe');
+          Afw.Modal.openIframeModal(options.url, options.name).modal('show');
         }
       }
     },
@@ -154,6 +159,8 @@
     Window: {
       init: function () {
         this.initOpener();
+        this.initAutoOpener();
+        this.initAutoOpenerAction();
       },
       initOpener: function () {
         jQuery('a.afw-window').click(function() {
@@ -161,16 +168,39 @@
             url = elem.prop('href'),
             name = elem.prop('name'),
             features = Afw.Utility.getDataAttr(elem, 'options');
-          if (name === undefined) {
-            name = null;
-          }
-          var featureParams = [];
-          for (var i in features) {
-            featureParams.push(i + '=' + features[i]);
-          }
-          window.open(url, name, featureParams.join(','));
+          Afw.Window.open(url, name, features);
           return false;
         });
+      },
+      initAutoOpener: function () {
+        jQuery('.afw-auto-window').click(function() {
+          var elem = jQuery(this),
+            options = {
+              'url': Afw.Utility.getDataAttr(elem, 'url'),
+              'name': Afw.Utility.getDataAttr(elem, 'name'),
+              'features': Afw.Utility.getDataAttr(elem, 'options')
+            };
+          Cookies.set('auto-window-open', options);
+          return true;
+        });
+      },
+      initAutoOpenerAction: function () {
+        var options = Cookies.get('auto-window-open');
+        if (options) {
+          options = JSON.parse(options);
+          Cookies.remove('auto-window-open');
+          Afw.Window.open(options.url, options.name, options.features);
+        }
+      },
+      open: function (url, name, features) {
+        if (name) {
+          name = null;
+        }
+        var featureParams = [];
+        for (var i in features) {
+          featureParams.push(i + '=' + features[i]);
+        }
+        window.open(url, name, featureParams.join(','));
       }
     }
   };
