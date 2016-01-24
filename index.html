@@ -87,25 +87,24 @@
       <li class="active">Data</li>
     </ol>
 
-
     <div class="container-fluid">
+      <h2>Modal / Window Open Operations</h2>
+
+      <h3>Window Openers</h3>
+      <a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a><br />
+      <a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a><br />
+
+      <h3>IFRAME Modal</h3>
+      <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a><br />
+      <a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a><br />
+      <a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a><br />
+      <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a><br />
+      <a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a><br />
+      <a href="index.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a>
+      
+      <h3>Simple Modal</h3>
+      <a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a><br />
     </div>
-    
-    this is test
-    <br />
-    <br />
-
-    <a href="http://www.tom-gs.com" class="btn btn-default afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open tom-gs.com in new window</a>
-    <a href="index.html" class="btn btn-default afw-auto-window" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open tom-gs.com with auto window open</a>
-
-    <br />
-    <br />
-
-    <a href="dummy.html" class="btn btn-default afw-modal-iframe afw-modal-use-iframe-title">Open iframe modal</a>
-    <a href="http://www.tom-gs.com" class="btn btn-default afw-modal-iframe" data-afw-cookie-reload="reload-page">Open tom-gs.com in iframe modal</a>
-    <a href="javascript: void(0)" class="btn btn-default afw-modal" data-modal-element="afw-template-modal-about">About</a>
-    
-    <a href="index.html" class="btn btn-default afw-auto-modal-iframe" data-afw-url="http://www.tom-gs.com/">Open tom-gs.com with auto iframe modal</a>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

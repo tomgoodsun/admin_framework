@@ -80,13 +80,17 @@
         this.initAutoIframeModal();
         this.initAutoIframeModalAction();
       },
+      detectTitle: function (elem) {
+        var title = elem.attr('title');
+        if (!title) {
+          title = elem.html();
+        }
+        return title;
+      },
       initDefaultModal: function () {
         jQuery('.afw-modal').click(function() {
           var targetExpr = '#' + jQuery(this).attr('data-modal-element');
-            title = jQuery(this).attr('title');
-          if (title) {
-            title = jQuery(this).text();
-          }
+            title = Afw.Modal.detectTitle(jQuery(this));
           if (title) {
             jQuery(targetExpr).find('.modal-title').html(title);
           }
@@ -97,10 +101,7 @@
       initIframeModal: function () {
         jQuery('.afw-modal-iframe').click(function() {
           var origin = jQuery(this),
-            title = origin.attr('title');
-          if (title) {
-            title = origin.text();
-          }
+            title = Afw.Modal.detectTitle(origin);
           Afw.Modal.openIframeModal(origin.prop('href'), title, origin, origin.hasClass('afw-modal-use-iframe-title'));
           return false;
         });
