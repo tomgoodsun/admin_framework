@@ -134,15 +134,13 @@
           template.find('.modal-body').css({'height':height});
           template.find('iframe').height(height).css({'height':height}).prop('height', height);
           if (cookieReload) {
-            Cookies.set(cookieReload, 1);
+            Afw.Window.reserveCookieReload(cookieReload);
           }
         });
         elem.on('hidden.bs.modal', function () {
           if (cookieReload) {
             Afw.Window.startLoading();
-            var result = Cookies.get(cookieReload);
-            Cookies.remove(cookieReload);
-            if (result) {
+            if (Afw.Window.flushCookieReload(cookieReload)) {
               setTimeout(function () {
                 location.reload();
               }, 1000);
@@ -224,6 +222,14 @@
           featureParams.push(i + '=' + features[i]);
         }
         window.open(url, name, featureParams.join(','));
+      },
+      reserveCookieReload: function (name) {
+        Cookies.set(name, 1);
+      },
+      flushCookieReload: function (name) {
+        var result = Cookies.get(name);
+        Cookies.remove(name);
+        return result;
       }
     }
   };
