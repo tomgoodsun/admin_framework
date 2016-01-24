@@ -13,3 +13,24 @@ body {
 #afw-template-modal-iframe iframe {
   width: 100%;
 }
+
+#afw-full-screen {
+  background: rgba(0 ,0, 0, 0.5);
+  display: none;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+#afw-full-screen .outer {
+  display: table;
+  height: inherit;
+  width: 100%;
+}
+#afw-full-screen .inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+

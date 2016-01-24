@@ -139,10 +139,13 @@
         });
         elem.on('hidden.bs.modal', function () {
           if (cookieReload) {
+            Afw.Window.startLoading();
             var result = Cookies.get(cookieReload);
             Cookies.remove(cookieReload);
             if (result) {
-              location.reload();
+              setTimeout(function () {
+                location.reload();
+              }, 1000);
             }
           }
         });
@@ -175,6 +178,12 @@
         this.initOpener();
         this.initAutoOpener();
         this.initAutoOpenerAction();
+      },
+      startLoading: function () {
+        $('#afw-full-screen').css({height: jQuery(window).height()}).fadeIn();
+      },
+      endLoading: function () {
+        $('#afw-full-screen').fadeOut();
       },
       initOpener: function () {
         jQuery('a.afw-window').click(function() {
@@ -233,6 +242,5 @@
       subMenusSubOffsetX: 1,
       subMenusSubOffsetY: -8
     });
-
   });
 })();
