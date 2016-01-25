@@ -11,6 +11,7 @@ body {
   height: 95%;
 }
 #afw-template-modal-iframe iframe {
+  border: 0;
   width: 100%;
 }
 

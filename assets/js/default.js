@@ -114,7 +114,7 @@
         }
         elem.find('.modal-title').html('');
         elem.find('.modal-title').html(title);
-        iframe.attr('src', '');
+        iframe.attr('src', 'blank.html');
         iframe.attr('src', url);
         if (useContentTitle) {
           iframe.on('load', function () {
