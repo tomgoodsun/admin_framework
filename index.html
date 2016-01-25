@@ -91,19 +91,80 @@
       <h2>Modal / Window Open Operations</h2>
 
       <h3>Window Openers</h3>
-      <a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a><br />
-      <a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a><br />
+      <ul>
+        <li><a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a></li>
+        <li><a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a></li>
+      </ul>
 
       <h3>IFRAME Modal</h3>
-      <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a><br />
-      <a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a><br />
-      <a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a><br />
-      <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a><br />
-      <a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a><br />
-      <a href="index.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a>
+      <ul>
+        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a></li>
+        <li><a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a></li>
+        <li><a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a></li>
+        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a></li>
+        <li><a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a></li>
+        <li><a href="index.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a></li>
+      </ul>
       
       <h3>Simple Modal</h3>
-      <a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a><br />
+      <ul>
+        <li><a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a></li>
+      </ul>
+
+    </div>
+    <div class="container-fluid">
+      <h2>List Views (Table)</h2>
+
+      <h3>Simple Table</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="id">ID</th>
+            <th class="text">Name</th>
+            <th class="number">Age</th>
+            <th class="date">Registered Date</th>
+            <th class="term">Started Date<br />- Ended Date</th>
+            <th class="handler"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="id">1</td>
+            <td class="text">Nick</td>
+            <td class="number">21</td>
+            <td class="date">2016-01-25 00:00:00</td>
+            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+          </tr>
+          <tr>
+            <td class="id">2</td>
+            <td class="text">Dolly</td>
+            <td class="number">18</td>
+            <td class="date">2015-01-25 00:00:00</td>
+            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+          </tr>
+          <tr>
+            <td class="id">3</td>
+            <td class="text">Judy</td>
+            <td class="number">23</td>
+            <td class="date">2015-09-01 00:00:00</td>
+            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <nav>
+        <ul class="pagination">
+          <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+      </nav>
     </div>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

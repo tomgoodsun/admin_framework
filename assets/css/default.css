@@ -35,3 +35,25 @@ body {
   vertical-align: middle;
 }
 
+.table th.id,
+.table th.text,
+.table th.number,
+.table th.date {
+  text-align: left;
+}
+.table th.term {
+  text-align: center;
+}
+
+.table td.id,
+.table td.text,
+.table td.date {
+  text-align: left;
+}
+.table td.number {
+  text-align: right;
+}
+.table td.term {
+  text-align: center;
+}
+
