@@ -53,14 +53,14 @@ body {
   margin: 0 0 0 5px;
   width: 16px;
 }
-.table th a.asc .arrow {
-  background-image: url(../images/sort_up.png);
+.table th.current a.asc .arrow {
+  background-image: url(../images/sort_up_active.png);
 }
 .table th a.asc:hover .arrow {
   background-image: url(../images/sort_down.png);
 }
-.table th a.desc .arrow {
-  background-image: url(../images/sort_down.png);
+.table th.current a.desc .arrow {
+  background-image: url(../images/sort_down_active.png);
 }
 .table th a.desc:hover .arrow {
   background-image: url(../images/sort_up.png);
