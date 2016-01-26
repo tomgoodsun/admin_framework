@@ -171,6 +171,18 @@
       }
     },
 
+    Table: {
+      init: function () {
+        this.initSorter();
+      },
+      initSorter: function () {
+        jQuery('.table a.sort').each(function (index) {
+          var elem = jQuery(this);
+          elem.html(elem.html() + '<span class="arrow"></span>');
+        });
+      }
+    },
+
     Window: {
       init: function () {
         this.initOpener();
@@ -236,6 +248,7 @@
 
   jQuery(document).ready(function () {
     Afw.Modal.init();
+    Afw.Table.init();
     Afw.Window.init();
 
     //console.log(Afw.Language.getText('TEXT1'));
