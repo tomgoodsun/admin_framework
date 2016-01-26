@@ -1,7 +1,7 @@
-//var languages = {
-//  "TEXT1": "This is test",
-//  "TEXT2": "This is test. Number %s."
-//};
+var languages = {
+  "TEXT1": "This is test",
+  "TEXT2": "This is test. Number %s."
+};
 
 (function () {
   var Afw = AdminFramework = {
@@ -67,9 +67,12 @@
         return Afw.Language._(label);
       },
       sprintf: function () {
-        var label = Array.prototype.shift.apply(arguments),
-          args = [].slice.apply(arguments);
-        return call_user_func_array(sprintf, [Afw.Language._(label), args]);
+        var args = [].slice.apply(arguments);
+        if (args.length === 0) {
+          return null;
+        }
+        args[0] = Afw.Language._(args[0]);
+        return sprintf.apply(this, args);
       }
     },
 
@@ -255,8 +258,8 @@
     Afw.Table.init();
     Afw.Window.init();
 
-    //console.log(Afw.Language.getText('TEXT1'));
-    //console.log(Afw.Language.sprintf('TEXT2', 2));
+    console.log(Afw.Language.getText('TEXT1'));
+    console.log(Afw.Language.sprintf('TEXT2', 2));
     //Cookies.remove('test');
     //console.log(Cookies.get('test'));
     //Cookies.set('test', 1);
