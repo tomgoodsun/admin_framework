@@ -76,6 +76,20 @@ var languages = {
       }
     },
 
+    Form: {
+      init: function () {
+        this.initEnterSubmittion();
+      },
+      initEnterSubmittion: function () {
+        jQuery('form.disable-enter-key').on('keydown', function(e) {
+          if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+            return false;
+          }
+          return true;
+        });
+      }
+    },
+
     Modal: {
       init: function () {
         this.initDefaultModal();
@@ -268,6 +282,7 @@ var languages = {
   };
 
   jQuery(document).ready(function () {
+    Afw.Form.init();
     Afw.Modal.init();
     Afw.Pagination.init();
     Afw.Table.init();
