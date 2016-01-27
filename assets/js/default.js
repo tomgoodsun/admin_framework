@@ -174,6 +174,20 @@ var languages = {
       }
     },
 
+    Pagination: {
+      init: function () {
+        this.initActive();
+      },
+      initActive: function () {
+        jQuery('.pagination li a').each(function() {
+          var elem = jQuery(this);
+          if (elem.find('.active').length > 0) {
+            elem.parent('li').addClass('active');
+          }
+        });
+      }
+    },
+
     Table: {
       init: function () {
         this.initSorter();
@@ -255,6 +269,7 @@ var languages = {
 
   jQuery(document).ready(function () {
     Afw.Modal.init();
+    Afw.Pagination.init();
     Afw.Table.init();
     Afw.Window.init();
 
