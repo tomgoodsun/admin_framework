@@ -92,19 +92,22 @@ var languages = {
         });
       },
       initSelect2: function () {
-        jQuery('select.afw-select2').select2();
-        jQuery('.afw-select2-wrapper select').select2();
+        jQuery('.afw-select2-wrapper select').each(function () {
+          var elem = jQeury(this);
+          if (!elem.hasClass('afw-select2')) {
+            jQeury(this).addClass('afw-select2');
+          }
+        });
+        jQuery('select.afw-select2').select2({theme: 'bootstrap'});
       },
       initSelect2Ajax: function () {
-        jQuery('select.afw-select2-ajax').select2({
+        var options = {
+          theme: 'bootstrap',
           ajax: {
             dataType: 'json',
             delay: 50,
             data: function (params) {
-              return {
-                q: params.term,
-                page: params.page
-              };
+              return {q: params.term, page: params.page};
             },
             processResults: function (data, params) {
               params.page = params.page || 1;
@@ -117,40 +120,47 @@ var languages = {
             },
             cache: true
           },
-          escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-          minimumInputLength: 1,
-          templateResult: function (repo) {
-            if (repo.loading) return repo.text;
-
-          //  var markup = "<div class='select2-result-repository clearfix'>" +
-          //    "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
-          //    "<div class='select2-result-repository__meta'>" +
-          //      "<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
-
-          //  if (repo.description) {
-          //    markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
-          //  }
-
-          //  markup += "<div class='select2-result-repository__statistics'>" +
-          //    "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> " + repo.forks_count + " Forks</div>" +
-          //    "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> " + repo.stargazers_count + " Stars</div>" +
-          //    "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> " + repo.watchers_count + " Watchers</div>" +
-          //  "</div>" +
-          //  "</div></div>";
-            console.log(repo);
-
-            var markup = "<div class='select2-result-repository clearfix'>" +
-              "<div class='select2-result-repository__meta'>" +
-                "<div class='select2-result-repository__title'>" + repo.text + "</div>" +
-            "</div></div>";
-
+          escapeMarkup: function (markup) {
             return markup;
           },
-
+          minimumInputLength: 1,
+          templateResult: function (repo) {
+            if (repo.loading) {
+              return repo.text;
+            }
+            var markup = '';
+            markup += '<div class="select2-result clearfix">';
+            var thumb = '';
+            if (repo.thumbnail) {
+              var imgIndexes = ['alt', 'height', 'src', 'title', 'width'];
+              for (var i = 0, len = imgIndexes.length; i < len; i++) {
+                if (repo.thumbnail[imgIndexes[i]]) {
+                  thumb += imgIndexes[i] + '="' + repo.thumbnail[imgIndexes[i]] + '" ';
+                }
+              }
+              thumb = '<img ' + thumb + ' />';
+            }
+            markup += '<div class="select2-ajax-result__avatar">' + thumb + '</div>';
+            markup += '<div class="select2-ajax-result__meta">';
+            markup += '<div class="select2-ajax-result__title">' + repo.text + '</div>';
+            if (repo.description) {
+              markup += '<div class="select2-ajax-result__description">' + repo.description + '</div>';
+            }
+            markup += '</div>';
+            markup += '</div>';
+            return markup;
+          },
           templateSelection: function (repo) {
             return repo.full_name || repo.text;
           }
+        };
+        jQuery('.afw-select2-ajax-wrapper select').each(function () {
+          var elem = jQeury(this);
+          if (!elem.hasClass('afw-select2-ajax')) {
+            jQeury(this).addClass('afw-select2-ajax');
+          }
         });
+        jQuery('select.afw-select2-ajax').select2(options);
       }
     },
 

@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="assets/scripts/smartmenus/jquery.smartmenus.bootstrap.css" />
     <link rel="stylesheet" href="assets/scripts/select2/select2.min.css" />
+    <link rel="stylesheet" href="assets/scripts/select2/select2-bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/default.css" />
   </head>
   <body>
@@ -178,17 +179,17 @@
           <div class="col-md-4">
             <div class="form-group">
               <label for="form-input-email">Email address</label>
-              <input type="email" class="form-control" id="form-input-email" placeholder="Email" />
+              <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
             </div>
 
             <div class="form-group">
               <label for="form-input-password">Password</label>
-              <input type="password" class="form-control" id="form-input-password" placeholder="Password" />
+              <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
             </div>
 
             <div class="form-group">
               <label for="form-input-file">File input</label>
-              <input type="file" id="form-input-file" />
+              <input type="file" name="form-input-file" id="form-input-file" />
               <p class="help-block">Example block-level help text here.</p>
             </div>
 
@@ -200,7 +201,7 @@
           <div class="col-md-8">
             <div class="form-group">
               <label for="form-select-one">Select One</label>
-              <select class="form-control" id="form-select-one">
+              <select name="form-select" class="form-control" id="form-select-one">
                 <option value="">-- Select --</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -212,7 +213,7 @@
 
             <div class="form-group">
               <label for="form-select-one-select2">Select One with Select2</label>
-              <select class="form-control afw-select2" id="form-select-one-select2">
+              <select name="form-ubuntu-family" class="form-control afw-select2" id="form-select-one-select2">
                 <option value="">-- Select Ubuntu Family --</option>
                 <option value="1">Ubuntu</option>
                 <option value="2">Basix</option>
@@ -239,14 +240,14 @@
 
             <div class="form-group">
               <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
-              <select class="form-control afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
+              <select name="form-rhel-family"class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
                 <option value="1" selected="selected">CentOS</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="form-select-multiple">Select Multiple</label>
-              <select multiple class="form-control" id="form-select-multiple">
+              <select multiple name="form-multiple" class="form-control" id="form-select-multiple">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -259,13 +260,13 @@
               <label>Checkbox</label>
               <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-primary active">
-                  <input type="checkbox" autocomplete="off" checked> Checkbox 1 (pre-checked)
+                  <input type="checkbox" name="form-checkbox[]" autocomplete="off" checked> Checkbox 1 (pre-checked)
                 </label>
                 <label class="btn btn-primary">
-                  <input type="checkbox" autocomplete="off"> Checkbox 2
+                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 2
                 </label>
                 <label class="btn btn-primary">
-                  <input type="checkbox" autocomplete="off"> Checkbox 3
+                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 3
                 </label>
               </div>
             </div>
@@ -371,7 +372,7 @@
 
     <script type="text/javascript" src="assets/scripts/smartmenus/jquery.smartmenus.min.js"></script>
     <script type="text/javascript" src="assets/scripts/smartmenus/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/select2/select2.min.js"></script>
     <script type="text/javascript" src="assets/scripts/js.cookie.js"></script>
 
     <script src="assets/js/default.js"></script>
