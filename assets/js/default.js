@@ -2,6 +2,76 @@ var languages = {
   "TEXT1": "This is test",
   "TEXT2": "This is test. Number %s."
 };
+var AfwConfig = {
+  Form: {
+    disableEnterSubmissionClassName: 'form.disable-enter-key',
+    Select2: {
+      wrapperClassName: '.afw-select2-wrapper select',
+      className: 'afw-select2',
+      options: {
+        theme: 'bootstrap'
+      }
+    },
+    Select2Ajax: {
+      wrapperClassName: '.afw-select2-ajax-wrapper select',
+      className: 'afw-select2-ajax',
+      options: {
+        theme: 'bootstrap',
+        ajax: {
+          dataType: 'json',
+          delay: 50, // Waiting milisec to send query to ajax API helps reduce too many requests
+          data: function (params) {
+            return {q: params.term, page: params.page};
+          },
+          processResults: function (data, params) {
+            params.page = params.page || 1;
+            return {
+              results: data.items,
+              pagination: {
+                more: (params.page * 30) < data.total_count
+              }
+            };
+          },
+          cache: true
+        },
+        escapeMarkup: function (markup) {
+          return markup;
+        },
+        minimumInputLength: 1,
+        templateResult: function (repo) {
+          if (repo.loading) {
+            return repo.text;
+          }
+          var markup = '';
+          markup += '<div class="select2-result clearfix">';
+          var thumb = '';
+          if (repo.thumbnail) {
+            var imgIndexes = ['alt', 'height', 'src', 'title', 'width'];
+            for (var i = 0, len = imgIndexes.length; i < len; i++) {
+              if (repo.thumbnail[imgIndexes[i]]) {
+                thumb += imgIndexes[i] + '="' + repo.thumbnail[imgIndexes[i]] + '" ';
+              }
+            }
+            thumb = '<img ' + thumb + ' />';
+          }
+          markup += '<div class="select2-ajax-result__avatar">' + thumb + '</div>';
+          markup += '<div class="select2-ajax-result__meta">';
+          markup += '<div class="select2-ajax-result__title">' + repo.text + '</div>';
+          if (repo.description) {
+            markup += '<div class="select2-ajax-result__description">' + repo.description + '</div>';
+          }
+          markup += '</div>';
+          markup += '</div>';
+          return markup;
+        },
+        templateSelection: function (repo) {
+          return repo.full_name || repo.text;
+        }
+      }
+    }
+  }
+};
+Object.freeze(AfwConfig);
 
 (function () {
   var Afw = AdminFramework = {
@@ -79,88 +149,29 @@ var languages = {
 
     Form: {
       init: function () {
+        var config = AfwConfig.Form;
         this.initEnterSubmittion();
-        this.initSelect2();
-        this.initSelect2Ajax();
+        this.initSelect2(config.Select2);
+        this.initSelect2(config.Select2Ajax);
       },
       initEnterSubmittion: function () {
-        jQuery('form.disable-enter-key').on('keydown', function(e) {
+        jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
           if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
             return false;
           }
           return true;
         });
       },
-      initSelect2: function () {
-        jQuery('.afw-select2-wrapper select').each(function () {
-          var elem = jQeury(this);
-          if (!elem.hasClass('afw-select2')) {
-            jQeury(this).addClass('afw-select2');
-          }
-        });
-        jQuery('select.afw-select2').select2({theme: 'bootstrap'});
+      initOptimizationForSelect2: function (elem, className) {
+        if (!elem.hasClass(className)) {
+          elem.addClass(className);
+        }
       },
-      initSelect2Ajax: function () {
-        var options = {
-          theme: 'bootstrap',
-          ajax: {
-            dataType: 'json',
-            delay: 50,
-            data: function (params) {
-              return {q: params.term, page: params.page};
-            },
-            processResults: function (data, params) {
-              params.page = params.page || 1;
-              return {
-                results: data.items,
-                pagination: {
-                  more: (params.page * 30) < data.total_count
-                }
-              };
-            },
-            cache: true
-          },
-          escapeMarkup: function (markup) {
-            return markup;
-          },
-          minimumInputLength: 1,
-          templateResult: function (repo) {
-            if (repo.loading) {
-              return repo.text;
-            }
-            var markup = '';
-            markup += '<div class="select2-result clearfix">';
-            var thumb = '';
-            if (repo.thumbnail) {
-              var imgIndexes = ['alt', 'height', 'src', 'title', 'width'];
-              for (var i = 0, len = imgIndexes.length; i < len; i++) {
-                if (repo.thumbnail[imgIndexes[i]]) {
-                  thumb += imgIndexes[i] + '="' + repo.thumbnail[imgIndexes[i]] + '" ';
-                }
-              }
-              thumb = '<img ' + thumb + ' />';
-            }
-            markup += '<div class="select2-ajax-result__avatar">' + thumb + '</div>';
-            markup += '<div class="select2-ajax-result__meta">';
-            markup += '<div class="select2-ajax-result__title">' + repo.text + '</div>';
-            if (repo.description) {
-              markup += '<div class="select2-ajax-result__description">' + repo.description + '</div>';
-            }
-            markup += '</div>';
-            markup += '</div>';
-            return markup;
-          },
-          templateSelection: function (repo) {
-            return repo.full_name || repo.text;
-          }
-        };
-        jQuery('.afw-select2-ajax-wrapper select').each(function () {
-          var elem = jQeury(this);
-          if (!elem.hasClass('afw-select2-ajax')) {
-            jQeury(this).addClass('afw-select2-ajax');
-          }
+      initSelect2: function (config) {
+        jQuery(config.wrapperClassName).each(function () {
+          Afw.Form.initOptimizationForSelect2(jQuery(this), config.className);
         });
-        jQuery('select.afw-select2-ajax').select2(options);
+        jQuery('select.' + config.className).select2(config.options);
       }
     },
 
