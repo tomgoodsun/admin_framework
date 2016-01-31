@@ -173,7 +173,7 @@
     <div class="container-fluid">
       <h2>Form</h2>
 
-      <h3>Simple Table</h3>
+      <h3>General Form Format</h3>
       <form method="post" action="./" class="disable-enter-key">
         <div class="row">
           <div class="col-md-4">
@@ -328,6 +328,70 @@
           <button type="reset" class="btn btn-default">Reset</button>
         </div>
       </form>
+
+      <h3>Search Form Format</h3>
+      <div class="search-form">
+        <h4>Search Form</h4>
+        <form method="post" action="./" class="form-inline disable-enter-key">
+          <ul>
+            <li class="form-group">
+              <label for="form-input-email">Email address</label>
+              <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
+            </li>
+
+            <li class="form-group">
+              <label for="form-input-password">Password</label>
+              <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
+            </li>
+
+            <li class="form-group afw-select2-wrapper">
+              <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
+              <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
+                <option value="">-- Select Ubuntu Family --</option>
+                <option value="1">Ubuntu</option>
+                <option value="2">Basix</option>
+                <option value="3">elementary OS</option>
+                <option value="4">Edubuntu</option>
+                <option value="5">Elbuntu</option>
+                <option value="6">Gobuntu</option>
+                <option value="7">Goobuntu</option>
+                <option value="8">Kubuntu</option>
+                <option value="9">Kona Linux</option>
+                <option value="10">LinuxBean</option>
+                <option value="11">Linux Mint</option>
+                <option value="12">Lubuntu</option>
+                <option value="13">nUbuntu</option>
+                <option value="14">Peppermint</option>
+                <option value="15">Ubuntu Christian Edition</option>
+                <option value="16">Ubuntu Lite</option>
+                <option value="17">Ubuntu Studio</option>
+                <option value="18">Xubuntu</option>
+                <option value="19">zUbuntu</option>
+                <option value="20">巫女 GNYO/Linux </option>
+              </select>
+            </li>
+
+            <li class="form-group">
+              <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
+              <select name="form-rhel-family"class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
+                <option value="1" selected="selected">CentOS</option>
+              </select>
+            </li>
+
+            <li class="form-group afw-select2-ajax-wrapper">
+              <label for="form-wrapped-select-one-select2-ajax">Wrapped Select One with Select2 thru Ajax</label>
+              <select name="form-rhel-family-wrapped"class="form-control" data-ajax--url="sample/select2.php" id="form-wrapped-select-one-select2-ajax">
+                <option value="1" selected="selected">CentOS</option>
+              </select>
+            </li>
+          </ul>
+        
+          <div class="form-group buttons">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+          </div>
+        </form>
+      </div>
 
     </div>
 

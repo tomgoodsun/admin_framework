@@ -113,6 +113,29 @@ body {
   color: #c6dcef;
 }
 
+/* Search Form Section */
+.search-form {
+  background: #eee;;
+  border: 1px solid #ccc;
+  padding: 10px 10px 10px 10px;
+}
+.search-form h4 {
+  font-weight: bold;
+  margin: 0 0 10px 0 !important;
+}
+.search-form ul {
+  margin: 0 0 0 0 !important;
+  padding: 0 0 0 0 !important;
+}
+.search-form ul > li {
+  display: inline-block;
+  margin: 0 0 10px 0 !important;
+}
+.search-form .buttons {
+  display: block;
+  text-align: right;
+}
+
 /* Image Assets Section */
 .sprite,
 .sprite-logo {
