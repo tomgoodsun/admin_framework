@@ -35,6 +35,17 @@ body {
   vertical-align: middle;
 }
 
+/* Realtime Clock Section */
+.afw-realtime-clock {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+.navbar-nav .afw-realtime-clock {
+  display: block;
+  line-height: 20px !important;
+  padding: 15px 15px 15px 15px !important;
+  position: relative;
+}
+
 /* Table Style Section */
 .table th.id,
 .table th.text,

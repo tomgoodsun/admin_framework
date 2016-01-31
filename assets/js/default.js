@@ -75,6 +75,32 @@ Object.freeze(AfwConfig);
 
 (function () {
   var Afw = AdminFramework = {
+    Date: {
+      init: function () {
+        this.initRealTimeClock();
+      },
+      initRealTimeClock: function () {
+        var currentTime = Date.now();
+        var countTime = function () {
+          currentTime += 1000;
+          var date = new Date(currentTime);
+          //console.log(date.toString());
+          jQuery('.afw-realtime-clock').html(date.toLocaleString());
+          setTimeout(countTime, 1000);
+        };
+        setTimeout(countTime, 1000);
+        var retrieveServerDate = function () {
+          jQuery.ajax({
+            url: 'assets/bin/date.php',
+            dataType: 'json'
+          }).success(function(data) {
+            currentTime = parseInt(data.time, 10) * 1000;
+            setTimeout(retrieveServerDate, 60000);
+          });
+        };
+        retrieveServerDate();
+      }
+    },
     Utility: {
       calcStyle: function (elem, props) {
         var result = 0;
@@ -367,6 +393,7 @@ Object.freeze(AfwConfig);
   };
 
   jQuery(document).ready(function () {
+    Afw.Date.init();
     Afw.Form.init();
     Afw.Modal.init();
     Afw.Pagination.init();
