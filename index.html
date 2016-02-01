@@ -227,10 +227,8 @@
                 </label>
               </div>
             </div>
-          </div>
 
-          <div class="col-md-8">
-            <div class="form-group">
+            <div class="form-group form-inline">
               <label for="form-select-one">Select One</label>
               <select name="form-select" class="form-control" id="form-select-one">
                 <option value="">-- Select --</option>
@@ -242,7 +240,7 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group form-inline">
               <label for="form-select-one-select2">Select One with Select2</label>
               <select name="form-ubuntu-family" class="form-control afw-select2" id="form-select-one-select2">
                 <option value="">-- Select Ubuntu Family --</option>
@@ -269,7 +267,7 @@
               </select>
             </div>
 
-            <div class="form-group afw-select2-wrapper">
+            <div class="form-group form-inline afw-select2-wrapper">
               <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
               <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
                 <option value="">-- Select Ubuntu Family --</option>
@@ -319,6 +317,18 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-group form-inline">
+              <label for="form-textarea-tinymce">TinyMCE</label>
+              <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>
+            </div>
+
+            <div class="form-group form-inline afw-textarea-tinymce-wrapper">
+              <label for="form-wrapped-textarea-tinymce">Wrapped TinyMCE</label>
+              <textarea name="form-wrapped-textarea-tinymce" id="form-wrapped-textarea-tinymce"></textarea>
             </div>
 
           </div>
@@ -447,12 +457,13 @@
             <h3>Integrated with</h3>
             <h4>Libraries and Plugins</h4>
             <ul>
-              <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
               <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
-              <li><a href="http://www.smartmenus.org/download/" target="_blank">smartmenus</a></li>
-              <li><a href="https://github.com/alexei/sprintf.js/blob/master/dist/sprintf.min.js" target="_blank">sprintf for JavaScript</a></li>
+              <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
               <li><a href="https://github.com/js-cookie/js-cookie" target="_blank">js.cookie</a></li>
               <li><a href="https://select2.github.io/" target="_blank">Select2</a></li>
+              <li><a href="http://www.smartmenus.org/download/" target="_blank">smartmenus</a></li>
+              <li><a href="https://github.com/alexei/sprintf.js/blob/master/dist/sprintf.min.js" target="_blank">sprintf for JavaScript</a></li>
+              <li><a href="https://www.tinymce.com/" target="_blank">TinyMCE</a></li>
             </ul>
 
             <h4>Tools and Services</h4>
@@ -497,6 +508,7 @@
     <script type="text/javascript" src="assets/scripts/smartmenus/jquery.smartmenus.bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/scripts/select2/select2.min.js"></script>
     <script type="text/javascript" src="assets/scripts/js.cookie.js"></script>
+    <script type="text/javascript" src="assets/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
 
     <script src="assets/js/default.js"></script>
   </body>

@@ -68,6 +68,27 @@ var AfwConfig = {
           return repo.full_name || repo.text;
         }
       }
+    },
+    TinyMce: {
+      wrapperExpr: '.afw-textarea-tinymce-wrapper textarea',
+      className: 'afw-textarea-tinymce',
+      options: {
+        //selector: '.afw-textarea-tinymce',
+        theme: 'modern',
+        plugins: [
+          'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+          'searchreplace wordcount visualblocks visualchars code fullscreen',
+          'insertdatetime media nonbreaking save table contextmenu directionality',
+          'emoticons template paste textcolor colorpicker textpattern imagetools'
+        ],
+        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        toolbar2: 'print preview media | forecolor backcolor emoticons',
+        image_advtab: true,
+        templates: [
+          {title: 'Test template 1', content: 'Test 1'},
+          {title: 'Test template 2', content: 'Test 2'}
+        ]
+      }
     }
   }
 };
@@ -102,6 +123,11 @@ Object.freeze(AfwConfig);
       }
     },
     Utility: {
+      addClass: function (elem, className) {
+        if (!elem.hasClass(className)) {
+          elem.addClass(className);
+        }
+      },
       calcStyle: function (elem, props) {
         var result = 0;
         for (var i = 0, len = props.length; i < len; i++) {
@@ -179,6 +205,7 @@ Object.freeze(AfwConfig);
         this.initEnterSubmittion();
         this.initSelect2(config.Select2);
         this.initSelect2(config.Select2Ajax);
+        this.initTextAreaTinyMce(config.TinyMce);
       },
       initEnterSubmittion: function () {
         jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
@@ -188,16 +215,18 @@ Object.freeze(AfwConfig);
           return true;
         });
       },
-      initOptimizationForSelect2: function (elem, className) {
-        if (!elem.hasClass(className)) {
-          elem.addClass(className);
-        }
-      },
       initSelect2: function (config) {
         jQuery(config.wrapperClassName).each(function () {
-          Afw.Form.initOptimizationForSelect2(jQuery(this), config.className);
+          Afw.Utility.addClass(jQuery(this), config.className);
         });
         jQuery('select.' + config.className).select2(config.options);
+      },
+      initTextAreaTinyMce: function (config) {
+        jQuery(config.wrapperExpr).each(function () {
+          Afw.Utility.addClass(jQuery(this), config.className);
+        });
+        config.options.selector = '.' + config.className;
+        tinymce.init(config.options);
       }
     },
 
