@@ -87,7 +87,33 @@ var AfwConfig = {
         templates: [
           {title: 'Test template 1', content: 'Test 1'},
           {title: 'Test template 2', content: 'Test 2'}
-        ]
+        ],
+        file_browser_callback: function (fieldName, url, type, win) {
+          var roxyFileman = 'assets/scripts/fileman/index.html';
+          if (roxyFileman.indexOf('?') < 0) {     
+            roxyFileman += '?type=' + type;   
+          } else {
+            roxyFileman += '&type=' + type;
+          }
+          roxyFileman += '&input=' + fieldName + '&value=' + win.document.getElementById(fieldName).value;
+          if(tinyMCE.activeEditor.settings.language){
+            roxyFileman += '&langCode=' + tinyMCE.activeEditor.settings.language;
+          }
+          tinyMCE.activeEditor.windowManager.open({
+            file: roxyFileman,
+            title: 'Roxy Fileman',
+            width: 850, 
+            height: 650,
+            resizable: 'yes',
+            plugins: 'media',
+            inline: 'yes',
+            close_previous: 'no'  
+          }, {
+            window: win,
+            input: fieldName
+          });
+          return false; 
+        }
       }
     }
   }
