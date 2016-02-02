@@ -152,9 +152,25 @@ body {
 
 /* Image Assets Section */
 .sprite,
+.sprite-icons,
 .sprite-logo {
   background-repeat: no-repeat;
 }
+
+.sprite-icon {
+  background-image: url(../images/icons/sprite_icons.png);
+  display: inline-block;
+  height: 32px;
+  overflow: hidden;
+  width: 32px;
+}
+.sprite-icon-excel-upload {
+  background-position: 0 0;
+}
+.sprite-icon-excel-download {
+  background-position: 0 -40px;
+}
+
 .sprite-logo {
   background-image: url(../images/logo/sprite_symbol_mark.png);
   display: inline-block;
