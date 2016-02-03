@@ -5,6 +5,15 @@ var languages = {
 var AfwConfig = {
   Form: {
     disableEnterSubmissionClassName: 'form.disable-enter-key',
+    DateTimePicker: {
+      wrapperClassName: '.afw-datetimepicker-wrapper input',
+      className: 'afw-datetimepicker ',
+      options: {
+        timepicker: false,
+        format: 'Y-m-d H:i:s',
+        language: 'ja-JP'
+      }
+    },
     Select2: {
       wrapperClassName: '.afw-select2-wrapper select',
       className: 'afw-select2',
@@ -228,10 +237,30 @@ Object.freeze(AfwConfig);
     Form: {
       init: function () {
         var config = AfwConfig.Form;
+        this.initDateTimePicker(config.DateTimePicker);
         this.initEnterSubmittion();
         this.initSelect2(config.Select2);
         this.initSelect2(config.Select2Ajax);
         this.initTextAreaTinyMce(config.TinyMce);
+      },
+      initDateTimePicker: function (config) {
+        jQuery(config.wrapperClassName).each(function () {
+          Afw.Utility.addClass(jQuery(this), config.className);
+        });
+        jQuery('.' + config.className).each(function () {
+          var elem = jQuery(this),
+            options = Afw.Utility.getDataAttr(elem, 'options');
+          options = jQuery.merge(AfwConfig.Form.DateTimePicker.options, options);
+          elem.datetimepicker(options);
+        });
+
+
+        jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
+          if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+            return false;
+          }
+          return true;
+        });
       },
       initEnterSubmittion: function () {
         jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
