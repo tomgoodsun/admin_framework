@@ -270,7 +270,7 @@ Object.freeze(AfwConfig);
         jQuery('.' + config.className).each(function () {
           var elem = jQuery(this),
             options = Afw.Utility.getDataAttr(elem, 'options');
-          options = jQuery.merge(options, AfwConfig.Form.DateTimePicker.options);
+          options = jQuery.extend(options, AfwConfig.Form.DateTimePicker.options);
           elem.datetimepicker(options);
         });
 
