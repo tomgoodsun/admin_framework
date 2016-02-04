@@ -195,40 +195,6 @@
               <p class="help-block">Example block-level help text here.</p>
             </div>
 
-            <div class="checkbox">
-              <label><input type="checkbox" value="1" /> Check me out</label>
-            </div>
-
-            <div class="form-group">
-              <label>Checkbox</label>
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off" checked> Checkbox 1 (pre-checked)
-                </label>
-                <label class="btn btn-primary">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 2
-                </label>
-                <label class="btn btn-primary">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 3
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Radio</label>
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
-                </label>
-              </div>
-            </div>
-
             <div class="form-group form-inline">
               <label for="form-select-one">Select One</label>
               <select name="form-select" class="form-control" id="form-select-one">
@@ -319,19 +285,66 @@
                 <option value="5">5</option>
               </select>
             </div>
-
-            <div class="form-group">
-              <label for="form-datetimepicker">Date/Time Picker</label>
-              <input type="input" name="form-datetimepicker" id="form-datetimepicker" class="form-control afw-datetimepicker" value="" />
-            </div>
-
-            <div class="form-group afw-datetimepicker-wrapper">
-              <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker</label>
-              <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
-            </div>
           </div>
 
           <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Checkbox (Normal)</label><br />
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="1" /> Check me out</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Checkbox</label><br />
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="checkbox" name="form-checkbox[]" autocomplete="off" checked> Checkbox 1 (pre-checked)
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 2
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 3
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Radio</label><br />
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+                    </label>
+                    <label class="btn btn-primary">
+                      <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="form-datetimepicker">Date/Time Picker</label>
+                  <input type="input" name="form-datetimepicker" id="form-datetimepicker" class="form-control afw-datetimepicker" value="" />
+                </div>
+
+                <div class="form-group afw-datetimepicker-wrapper">
+                  <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker</label>
+                  <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
+                </div>
+
+                <div class="form-group afw-datetimepicker-wrapper" data-afw-options='{"timepicker":false,"format":"Y-m-d","language":"ja-JP"}'>
+                  <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker with <code>data-afw-options</code></label>
+                  <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
+                </div>
+              </div>
+            </div>
+
             <div class="form-group form-inline">
               <label for="form-textarea-tinymce">TinyMCE integrated with Roxy Fileman</label>
               <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>

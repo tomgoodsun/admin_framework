@@ -6,29 +6,29 @@ var AfwConfig = {
   Form: {
     disableEnterSubmissionClassName: 'form.disable-enter-key',
     DateTimePicker: {
-      wrapperClassName: '.afw-datetimepicker-wrapper input',
+      wrapperClassName: 'afw-datetimepicker-wrapper',
       className: 'afw-datetimepicker ',
       options: {
-        timepicker: false,
-        format: 'Y-m-d H:i:s',
+        timepicker: true,
+        format: 'Y-m-d H:i:00',
         language: 'ja-JP'
       }
     },
     Select2: {
-      wrapperClassName: '.afw-select2-wrapper select',
+      wrappedExpr: '.afw-select2-wrapper select',
       className: 'afw-select2',
       options: {
         theme: 'bootstrap'
       }
     },
     Select2Ajax: {
-      wrapperClassName: '.afw-select2-ajax-wrapper select',
+      wrappedExpr: '.afw-select2-ajax-wrapper select',
       className: 'afw-select2-ajax',
       options: {
         theme: 'bootstrap',
         ajax: {
           dataType: 'json',
-          delay: 50, // Waiting milisec to send query to ajax API helps reduce too many requests
+          delay: 1000, // Waiting milisec to send query to ajax API helps reduce too many requests
           data: function (params) {
             return {q: params.term, page: params.page};
           },
@@ -171,7 +171,6 @@ Object.freeze(AfwConfig);
         return result;
       },
       getDataAttr: function (elem, attrName) {
-        console.log(elem);
         var data = elem.attr('data-afw-' + attrName);
         if (attrName == 'options') {
           if (data === undefined) {
@@ -185,6 +184,19 @@ Object.freeze(AfwConfig);
           }
         }
         return data;
+      },
+      hasDataAttr: function (elem, attrName) {
+        var data = elem.attr('data-afw-' + attrName);
+        if (data === undefined) {
+          return false;
+        }
+        return true;
+      },
+      setDataAttr: function (elem, attrName, data) {
+        if (typeof data === 'object') {
+          data = JSON.stringify(data);
+        }
+        elem.attr('data-afw-' + attrName, data);
       },
       getWidth: function (elem) {
         var props = [
@@ -244,13 +256,21 @@ Object.freeze(AfwConfig);
         this.initTextAreaTinyMce(config.TinyMce);
       },
       initDateTimePicker: function (config) {
-        jQuery(config.wrapperClassName).each(function () {
-          Afw.Utility.addClass(jQuery(this), config.className);
+        jQuery(config.wrapperClassName)
+        jQuery('.' + config.wrapperClassName).each(function () {
+          var elem = jQuery(this);
+          elem.find('input').each(function () {
+            if (Afw.Utility.hasDataAttr(elem, 'options')) {
+              var options = Afw.Utility.getDataAttr(elem, 'options');
+              Afw.Utility.setDataAttr(jQuery(this), 'options', options);
+            }
+            Afw.Utility.addClass(jQuery(this), config.className);
+          });
         });
         jQuery('.' + config.className).each(function () {
           var elem = jQuery(this),
             options = Afw.Utility.getDataAttr(elem, 'options');
-          options = jQuery.merge(AfwConfig.Form.DateTimePicker.options, options);
+          options = jQuery.merge(options, AfwConfig.Form.DateTimePicker.options);
           elem.datetimepicker(options);
         });
 
@@ -271,7 +291,7 @@ Object.freeze(AfwConfig);
         });
       },
       initSelect2: function (config) {
-        jQuery(config.wrapperClassName).each(function () {
+        jQuery(config.wrappedExpr).each(function () {
           Afw.Utility.addClass(jQuery(this), config.className);
         });
         jQuery('select.' + config.className).select2(config.options);
