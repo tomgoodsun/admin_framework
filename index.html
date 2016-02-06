@@ -27,459 +27,48 @@
     <!-- Static navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="#">Project name @ env</a>
       </div>
       <div class="navbar-collapse collapse">
     
-        <!-- Left nav -->
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="./">Home</a></li>
-          <li>
-            <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">General <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="?section=main&amp;action=information">Information</a></li>
-              <li><a href="?section=main&amp;action=cache_revision">Cache Revision</a></li>
-              <li>
-                <a href="#">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-              </ul>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="?section=general&amp;action=admin_users">Admin users</a></li>
-              <li><a href="?section=general&amp;action=admin_profile">Profile</a></li>
-              <li><a href="?section=general&amp;action=admin_privs">Privileges</a></li>
-              <li><a href="?section=general&amp;action=admin_menus">Admin menus</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">About</a></li>
-            </ul>
-          </li>
-        </ul>
-    
         <!-- Right nav -->
         <ul class="nav navbar-nav navbar-right">
           <li><span class="afw-realtime-clock"></span></li>
-          <li class="active"><a href="bootstrap-navbar.html">Default</a></li>
-          <li>
-            <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="?section=admin&amp;action=profile">Profile</a></li>
-              <li><a href="?section=default&amp;action=logout">Logout</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </div>
 
-    <ol class="breadcrumb">
-      <li><a href="./">Home</a></li>
-      <li><a href="?section=main&amp;action=information">Information</a></li>
-      <li class="active">Data</li>
-    </ol>
+    <div id="afw-login-screen">
+      <div class="outer">
+        <div class="inner">
+          <div class="login-form">
+            <form method="post" action="home.php">
+              <h2>Welcome to<br />Integrated Admin Framework</h2>
 
-    <div class="container-fluid">
-      <h2>Modal / Window Open Operations</h2>
-
-      <h3>Window Openers</h3>
-      <ul>
-        <li><a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a></li>
-        <li><a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a></li>
-      </ul>
-
-      <h3>IFRAME Modal</h3>
-      <ul>
-        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a></li>
-        <li><a href="index.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a></li>
-      </ul>
-      
-      <h3>Simple Modal</h3>
-      <ul>
-        <li><a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a></li>
-      </ul>
-
-    </div>
-    <div class="container-fluid">
-      <h2>List Views (Table)</h2>
-
-      <h3>Simple Table</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="id">ID</th>
-            <th class="text">Name</th>
-            <th class="number"><span><a href="#" class="sort current asc">Age</a></span></th>
-            <th class="date"><a href="#" class="sort current desc">Registered Date</a></th>
-            <th class="term"><a href="#" class="sort asc">Started Date</a><br />- <a href="#" class="sort desc">Ended Date</a></th>
-            <th class="handler"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="id">1</td>
-            <td class="text">Nick</td>
-            <td class="number">21</td>
-            <td class="date">2016-01-25 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr>
-            <td class="id">2</td>
-            <td class="text">Dolly</td>
-            <td class="number">18</td>
-            <td class="date">2015-01-25 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr>
-            <td class="id">3</td>
-            <td class="text">Judy</td>
-            <td class="number">23</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <nav>
-        <ul class="pagination">
-          <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#"><span class="active">3</span></a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-        </ul>
-      </nav>
-    </div>
-
-
-    <div class="container-fluid">
-      <h2>Form</h2>
-
-      <h3>General Form Format</h3>
-      <form method="post" action="./" class="disable-enter-key">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="form-input-email">Email address</label>
-              <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
-            </div>
-
-            <div class="form-group">
-              <label for="form-input-password">Password</label>
-              <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
-            </div>
-
-            <div class="form-group">
-              <label for="form-input-file">File input</label>
-              <input type="file" name="form-input-file" id="form-input-file" />
-              <p class="help-block">Example block-level help text here.</p>
-            </div>
-
-            <div class="form-group form-inline">
-              <label for="form-select-one">Select One</label>
-              <select name="form-select" class="form-control" id="form-select-one">
-                <option value="">-- Select --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="form-group form-inline">
-              <label for="form-select-one-select2">Select One with Select2</label>
-              <select name="form-ubuntu-family" class="form-control afw-select2" id="form-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
-              </select>
-            </div>
-
-            <div class="form-group form-inline afw-select2-wrapper">
-              <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
-              <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family"class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-            </div>
-
-            <div class="form-group afw-select2-ajax-wrapper">
-              <label for="form-wrapped-select-one-select2-ajax">Wrapped Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family-wrapped"class="form-control" data-ajax--url="sample/select2.php" id="form-wrapped-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="form-select-multiple">Select Multiple</label>
-              <select multiple name="form-multiple" class="form-control" id="form-select-multiple">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-md-8">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Checkbox (Normal)</label><br />
-                  <div class="checkbox">
-                    <label><input type="checkbox" value="1" /> Check me out</label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Checkbox</label><br />
-                  <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                      <input type="checkbox" name="form-checkbox[]" autocomplete="off" checked> Checkbox 1 (pre-checked)
-                    </label>
-                    <label class="btn btn-primary">
-                      <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 2
-                    </label>
-                    <label class="btn btn-primary">
-                      <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 3
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Radio</label><br />
-                  <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
-                    </label>
-                    <label class="btn btn-primary">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
-                    </label>
-                    <label class="btn btn-primary">
-                      <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
-                    </label>
-                  </div>
-                </div>
+              <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> Login ID or Password is not correct.
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="form-datetimepicker">Date/Time Picker</label>
-                  <input type="input" name="form-datetimepicker" id="form-datetimepicker" class="form-control afw-datetimepicker" value="" />
-                </div>
-
-                <div class="form-group afw-datetimepicker-wrapper">
-                  <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker</label>
-                  <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
-                </div>
-
-                <div class="form-group afw-datetimepicker-wrapper" data-afw-options='{"timepicker":false,"format":"Y-m-d","language":"ja-JP"}'>
-                  <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker with <code>data-afw-options</code></label>
-                  <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
-                </div>
+              
+              <div class="form-group">
+                <label for="login-id">Login ID</label>
+                <input type="input" name="login_id" class="form-control" id="login-id" placeholder="Login ID" />
               </div>
-            </div>
 
-            <div class="form-group form-inline">
-              <label for="form-textarea-tinymce">TinyMCE integrated with Roxy Fileman</label>
-              <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>
-            </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" name="login_password" class="form-control" id="login-password" placeholder="Password" />
+              </div>
 
-            <div class="form-group form-inline afw-textarea-tinymce-wrapper">
-              <label for="form-wrapped-textarea-tinymce">Wrapped TinyMCE integrated with Roxy Fileman</label>
-              <textarea name="form-wrapped-textarea-tinymce" id="form-wrapped-textarea-tinymce"></textarea>
-            </div>
-
+              <div class="form-group buttons">
+                <input type="reset" class="btn btn-default" value="Reset" />
+                <input type="submit" class="btn btn-primary" value="Login" />
+              </div>
+            </form>
           </div>
         </div>
-        
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="reset" class="btn btn-default">Reset</button>
-        </div>
-      </form>
-
-      <h3>Search Form Format</h3>
-      <div class="search-form">
-        <h4>Search Form</h4>
-        <form method="post" action="./" class="form-inline disable-enter-key">
-          <ul>
-            <li class="form-group">
-              <label for="form-input-email">Email address</label>
-              <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
-            </li>
-
-            <li class="form-group">
-              <label for="form-input-password">Password</label>
-              <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
-            </li>
-
-            <li class="form-group afw-select2-wrapper">
-              <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
-              <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
-              </select>
-            </li>
-
-            <li class="form-group">
-              <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family"class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-            </li>
-
-            <li class="form-group afw-select2-ajax-wrapper">
-              <label for="form-wrapped-select-one-select2-ajax">Wrapped Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family-wrapped"class="form-control" data-ajax--url="sample/select2.php" id="form-wrapped-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-            </li>
-          </ul>
-        
-          <div class="form-group buttons">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-          </div>
-        </form>
       </div>
-
     </div>
-
-    <div class="container-fluid">
-      <h2>Vendor Logos</h2>
-
-      <h3>Sprited Logos</h3>
-      <table class="table">
-        <tr>
-          <td><span class="sprite-logo sprite-logo-ios"></span></td>
-          <td><span class="sprite-logo sprite-logo-appstore"></span></td>
-          <td><span class="sprite-logo sprite-logo-android"></span></td>
-          <td><span class="sprite-logo sprite-logo-googleplay"></span></td>
-          <td><span class="sprite-logo sprite-logo-windows"></span></td>
-          <td><span class="sprite-logo sprite-logo-microsoftstore"></span></td>
-        </tr>
-        <tr>
-          <th>iOS</th>
-          <th>AppStore</th>
-          <th>Android</th>
-          <th>GooglePlay</th>
-          <th>Windows</th>
-          <th>Microsoft Store</th>
-        </tr>
-      </table>
-
-      <h2>Icons</h2>
-
-      <h3>Sprited Icons</h3>
-      <table class="table">
-        <tr>
-          <td><span class="sprite-icon sprite-icon-excel-upload"></span></td>
-          <td><span class="sprite-icon sprite-icon-excel-download"></span></td>
-        </tr>
-        <tr>
-          <th>Excel Upload</th>
-          <th>Excel Download</th>
-        </tr>
-      </table>
-
-    </div>
-
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-    <!-- Loading -->
-    <div id="afw-full-screen"><div class="outer"><div class="inner"><img src="assets/images/loading.svg" alt="Loading" /></div></div></div>
 
     <!-- Modal: about -->
     <div class="modal fade" id="afw-template-modal-about" tabindex="-1" role="dialog">
@@ -515,27 +104,6 @@
               </ul>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- iFrame Modal -->
-    <div class="modal fade" id="afw-template-modal-iframe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            <iframe src="blank.html"></iframe>
-          </div>
-          <!--
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-          -->
         </div>
       </div>
     </div>

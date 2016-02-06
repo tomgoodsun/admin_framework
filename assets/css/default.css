@@ -35,6 +35,48 @@ body {
   vertical-align: middle;
 }
 
+/* Login Form Section */
+#afw-login-screen {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+#afw-login-screen .outer {
+  display: table;
+  height: inherit;
+  width: 100%;
+}
+#afw-login-screen .inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+#afw-login-screen .login-form {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 0px rgba(102, 102, 102, 0.7);
+  margin: 0 auto 0 auto;
+  padding: 0 10px 0 10px;
+  width: 620px;
+}
+#afw-login-screen .login-form label {
+  display: inline-block;
+  width: 150px;
+}
+#afw-login-screen .login-form .form-control {
+  display: inline-block;
+  width: 240px;
+}
+#afw-login-screen .login-form .buttons {
+  text-align: center;
+}
+#afw-login-screen .login-form .buttons input {
+  width: 100px;
+}
+
+
 /* Realtime Clock Section */
 .afw-realtime-clock {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
