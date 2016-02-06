@@ -1,5 +1,5 @@
 body {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 #afw-template-modal-iframe .modal-dialog {
   height: 95%;
@@ -50,14 +50,14 @@ body {
 #afw-login-screen .inner {
   display: table-cell;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: top;
 }
 #afw-login-screen .login-form {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 5px 5px 10px 0px rgba(102, 102, 102, 0.7);
-  margin: 0 auto 0 auto;
+  margin: 100px auto 0 auto;
   padding: 0 10px 0 10px;
   width: 620px;
 }
@@ -81,10 +81,13 @@ body {
 .afw-realtime-clock {
   font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
 }
+.navbar {
+  margin: 0;
+}
 .navbar-nav .afw-realtime-clock {
   display: block;
   line-height: 20px !important;
-  padding: 15px 15px 15px 15px !important;
+  padding: 15px 20px 15px 15px !important;
   position: relative;
 }
 .navbar-inverse .afw-realtime-clock {

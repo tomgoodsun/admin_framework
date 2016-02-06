@@ -14,6 +14,9 @@ var AfwConfig = {
         language: 'ja-JP'
       }
     },
+    Login: {
+      expr: '#afw-login-screen .login-form'
+    },
     Select2: {
       wrappedExpr: '.afw-select2-wrapper select',
       className: 'afw-select2',
@@ -251,6 +254,7 @@ Object.freeze(AfwConfig);
         var config = AfwConfig.Form;
         this.initDateTimePicker(config.DateTimePicker);
         this.initEnterSubmittion();
+        this.initLoginForm(config.Login);
         this.initSelect2(config.Select2);
         this.initSelect2(config.Select2Ajax);
         this.initTextAreaTinyMce(config.TinyMce);
@@ -273,8 +277,6 @@ Object.freeze(AfwConfig);
           options = jQuery.extend(options, AfwConfig.Form.DateTimePicker.options);
           elem.datetimepicker(options);
         });
-
-
         jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
           if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
             return false;
@@ -289,6 +291,9 @@ Object.freeze(AfwConfig);
           }
           return true;
         });
+      },
+      initLoginForm: function (config) {
+        jQuery(config.expr).find('input').first().focus();
       },
       initSelect2: function (config) {
         jQuery(config.wrappedExpr).each(function () {
