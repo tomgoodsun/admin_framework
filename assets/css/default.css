@@ -241,3 +241,15 @@ body {
 .sprite-logo-microsoftstore {
   background-position: -80px -40px;
 }
+
+
+/* About Section */
+#afw-template-modal-about .prod-name {
+  text-align: center;
+}
+#afw-template-modal-about .logo {
+  background: url(../images/logo.png) no-repeat;
+  margin: 0 auto 10px auto;
+  height: 116px;
+  width: 300px;
+}
