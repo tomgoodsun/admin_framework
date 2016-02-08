@@ -95,16 +95,75 @@ body {
 }
 
 /* Table Style Section */
-.table th.id,
-.table th.text,
-.table th.number,
-.table th.date {
+.afw-table > tbody > tr.inactive > td,
+.afw-table > tbody > tr.inactive > th,
+.afw-table > tbody > tr > td.inactive,
+.afw-table > tbody > tr > th.inactive,
+.afw-table > tfoot > tr.inactive > td,
+.afw-table > tfoot > tr.inactive > th,
+.afw-table > tfoot > tr > td.inactive,
+.afw-table > tfoot > tr > th.inactive,
+.afw-table > thead > tr.inactive > td,
+.afw-table > thead > tr.inactive > th,
+.afw-table > thead > tr > td.inactive,
+.afw-table > thead > tr > th.inactive {
+  background: #ccc;
+  color: #999;
+}
+.afw-table > tbody > tr.active > td,
+.afw-table > tbody > tr.active > th,
+.afw-table > tbody > tr > td.active,
+.afw-table > tbody > tr > th.active,
+.afw-table > tfoot > tr.active > td,
+.afw-table > tfoot > tr.active > th,
+.afw-table > tfoot > tr > td.active,
+.afw-table > tfoot > tr > th.active,
+.afw-table > thead > tr.active > td,
+.afw-table > thead > tr.active > th,
+.afw-table > thead > tr > td.active,
+.afw-table > thead > tr > th.active {
+  background: #fff;
+}
+.afw-table > tbody > tr.published > td,
+.afw-table > tbody > tr.published > th,
+.afw-table > tbody > tr > td.published,
+.afw-table > tbody > tr > th.published,
+.afw-table > tfoot > tr.published > td,
+.afw-table > tfoot > tr.published > th,
+.afw-table > tfoot > tr > td.published,
+.afw-table > tfoot > tr > th.published,
+.afw-table > thead > tr.published > td,
+.afw-table > thead > tr.published > th,
+.afw-table > thead > tr > td.published,
+.afw-table > thead > tr > th.published {
+  background: #fcf8e3;
+  color: #8a6d3b;
+}
+.afw-table > tbody > tr.error > td,
+.afw-table > tbody > tr.error > th,
+.afw-table > tbody > tr > td.error,
+.afw-table > tbody > tr > th.error,
+.afw-table > tfoot > tr.error > td,
+.afw-table > tfoot > tr.error > th,
+.afw-table > tfoot > tr > td.error,
+.afw-table > tfoot > tr > th.error,
+.afw-table > thead > tr.error > td,
+.afw-table > thead > tr.error > th,
+.afw-table > thead > tr > td.error,
+.afw-table > thead > tr > th.error {
+  background: #f2dede;
+  color: #a94442;
+}
+.afw-table th.id,
+.afw-table th.text,
+.afw-table th.number,
+.afw-table th.date {
   text-align: left;
 }
-.table th.term {
+.afw-table th.term {
   text-align: center;
 }
-.table th a.sort .arrow {
+.afw-table th a.sort .arrow {
   background-repeat: no-repeat;
   background-position: middle center;
   display: inline-block;
@@ -112,27 +171,27 @@ body {
   margin: 0 0 0 5px;
   width: 16px;
 }
-.table th.current a.asc .arrow {
+.afw-table th.current a.asc .arrow {
   background-image: url(../images/sort_up_active.png);
 }
-.table th a.asc:hover .arrow {
+.afw-table th a.asc:hover .arrow {
   background-image: url(../images/sort_down.png);
 }
-.table th.current a.desc .arrow {
+.afw-table th.current a.desc .arrow {
   background-image: url(../images/sort_down_active.png);
 }
-.table th a.desc:hover .arrow {
+.afw-table th a.desc:hover .arrow {
   background-image: url(../images/sort_up.png);
 }
-.table td.id,
-.table td.text,
-.table td.date {
+.afw-table td.id,
+.afw-table td.text,
+.afw-table td.date {
   text-align: left;
 }
-.table td.number {
+.afw-table td.number {
   text-align: right;
 }
-.table td.term {
+.afw-table td.term {
   text-align: center;
 }
 

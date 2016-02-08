@@ -438,6 +438,15 @@ Object.freeze(AfwConfig);
       }
     },
 
+    Tooltip: {
+      init: function () {
+        this.initTooltip();
+      },
+      initTooltip: function () {
+        jQuery('[data-toggle="tooltip"]').tooltip();
+      }
+    },
+
     Window: {
       init: function () {
         this.initOpener();
@@ -507,6 +516,7 @@ Object.freeze(AfwConfig);
     Afw.Modal.init();
     Afw.Pagination.init();
     Afw.Table.init();
+    Afw.Tooltip.init();
     Afw.Window.init();
 
     console.log(Afw.Language.getText('TEXT1'));
