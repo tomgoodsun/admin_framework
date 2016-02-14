@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{short_name} | {section_name} | {action_name} | {task_name}</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="../assets/scripts/smartmenus/jquery.smartmenus.bootstrap.css" />
+    <link rel="stylesheet" href="../assets/scripts/select2/select2.min.css" />
+    <link rel="stylesheet" href="../assets/scripts/select2/select2-bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/scripts/datetimepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="../assets/css/default.css" />
+  </head>
+  <body class="fixed-nav">
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Project name @ env</a>
+      </div>
+      <div class="navbar-collapse collapse">
+    
+        <!-- Right nav -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><span class="afw-realtime-clock"></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="afw-login-screen">
+      <div class="outer">
+        <div class="inner">
+          <div class="login-form">
+            <form method="post" action="home.php">
+              <h2>Welcome to<br />Integrated Admin Framework</h2>
+
+              <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> Login ID or Password is not correct.
+              </div>
+              
+              <div class="form-group">
+                <label for="login-id">Login ID</label>
+                <input type="input" name="login_id" class="form-control" id="login-id" placeholder="Login ID" />
+              </div>
+
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" name="login_password" class="form-control" id="login-password" placeholder="Password" />
+              </div>
+
+              <div class="form-group buttons">
+                <input type="reset" class="btn btn-default" value="Reset" />
+                <input type="submit" class="btn btn-primary" value="Login" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: about -->
+    <div class="modal fade" id="afw-template-modal-about" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">About</h4>
+          </div>
+          <div class="modal-body">
+            this is about.<br />
+            Ver.1.0
+            <h3>Integrated with</h3>
+            <h4>Libraries and Plugins</h4>
+            <ul>
+              <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+              <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
+              <li><a href="http://xdsoft.net/jqplugins/datetimepicker/" target="_blank">jQuery Date and Time picker</a></li>
+              <li><a href="https://github.com/js-cookie/js-cookie" target="_blank">js.cookie</a></li>
+              <li><a href="http://www.roxyfileman.com/" target="_blank">Roxy Fileman</a></li>
+              <li><a href="https://select2.github.io/" target="_blank">Select2</a></li>
+              <li><a href="http://www.smartmenus.org/download/" target="_blank">smartmenus</a></li>
+              <li><a href="https://github.com/alexei/sprintf.js/blob/master/dist/sprintf.min.js" target="_blank">sprintf for JavaScript</a></li>
+              <li><a href="https://www.tinymce.com/" target="_blank">TinyMCE</a></li>
+            </ul>
+
+            <h4>Tools and Services</h4>
+            <ul>
+              <li><a href="http://loading.io/" target="_blank">loading.io</a></li>
+              <li><a href="http://findicons.com/" target="_blank">Find Icons</a></li>
+              <ul>
+                <li><a href="http://findicons.com/pack/977/rrze" target="_blank">RRZE Icon Pack by Bdate Kaspar/Franziska Sponsel</a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/jquery-2.2.0.min.js"></script>
+    <script src="../assets/js/libraries.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../assets/scripts/smartmenus/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/smartmenus/jquery.smartmenus.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/js.cookie.js"></script>
+    <script type="text/javascript" src="../assets/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="../assets/js/default.js"></script>
+  </body>
+</html>

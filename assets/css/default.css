@@ -1,4 +1,4 @@
-body {
+body.fixed-nav {
   padding-top: 50px;
 }
 #afw-template-modal-iframe .modal-dialog {
@@ -230,6 +230,29 @@ body {
 .select2-results__option--highlighted .select2-ajax-result__description {
   color: #c6dcef;
 }
+
+/* General Form Section */
+.form-group.required .control-label:after { 
+  content: "*";
+  color: red;
+}
+.form-value {
+  display: block;
+}
+.form-inline .form-value {
+  display: inline;
+}
+.btn-wrapper,
+.btn-wrapper-left {
+  text-align: left;
+}
+.btn-wrapper-center {
+  text-align: center;
+}
+.btn-wrapper-right {
+  text-align: right;
+}
+
 
 /* Search Form Section */
 .search-form {

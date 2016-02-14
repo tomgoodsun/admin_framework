@@ -150,7 +150,7 @@ Object.freeze(AfwConfig);
         setTimeout(countTime, 1000);
         var retrieveServerDate = function () {
           jQuery.ajax({
-            url: 'assets/bin/date.php',
+            url: '/admin_framework/assets/bin/date.php',
             dataType: 'json'
           }).success(function(data) {
             currentTime = parseInt(data.time, 10) * 1000;

@@ -8,7 +8,7 @@
     <title>{short_name} | {section_name} | {action_name} | {task_name}</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,13 +17,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="assets/scripts/smartmenus/jquery.smartmenus.bootstrap.css" />
-    <link rel="stylesheet" href="assets/scripts/select2/select2.min.css" />
-    <link rel="stylesheet" href="assets/scripts/select2/select2-bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/scripts/datetimepicker/jquery.datetimepicker.css" />
-    <link rel="stylesheet" href="assets/css/default.css" />
+    <link rel="stylesheet" href="../assets/scripts/smartmenus/jquery.smartmenus.bootstrap.css" />
+    <link rel="stylesheet" href="../assets/scripts/select2/select2.min.css" />
+    <link rel="stylesheet" href="../assets/scripts/select2/select2-bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/scripts/datetimepicker/jquery.datetimepicker.css" />
+    <link rel="stylesheet" href="../assets/css/default.css" />
   </head>
-  <body>
+  <body class="fixed-nav">
     <!-- Static navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="navbar-header">
@@ -43,7 +43,7 @@
           <li>
             <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">General <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="?section=main&amp;action=information">Information</a></li>
+              <li><a href="list.html">News Administration</a></li>
               <li><a href="?section=main&amp;action=cache_revision">Cache Revision</a></li>
               <li>
                 <a href="#">Dropdown <span class="caret"></span></a>
@@ -99,40 +99,26 @@
           <ul>
             <li class="form-group">
               <label for="search-form-keyword">Keyword</label>
-              <input type="email" name="search-form-keyword" class="form-control keyword" id="search-form-keyword" placeholder="Keyword" />
+              <input type="text" name="search[keyword]" class="form-control keyword" id="search-form-keyword" placeholder="Keyword" />
             </li>
 
             <li class="form-group afw-select2-wrapper">
-              <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
-              <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
+              <label for="form-select-category-id">Category</label>
+              <select name="search[category_id]" class="form-control afw-select2" id="search-form-category-id">
+                <option value="">-- Select Category ID --</option>
+                <option value="1">1: Information</option>
+                <option value="2">2: Update</option>
+                <option value="3">3: Urgent</option>
+                <option value="4">4: Apology</option>
+                <option value="5">5: Report</option>
               </select>
             </li>
 
             <li class="form-group">
-              <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family"class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
+              <label for="search-form-activation" class="control-label">Activation</label>
+              <select name="search[active_flag]" class="form-control" id="search-form-activation">
+                <option value="0">0: Inactive</option>
+                <option value="1" selected="selected">1: Active</option>
               </select>
             </li>
           </ul>
@@ -159,58 +145,58 @@
           <tr class="inactive" data-toggle="tooltip" data-placement="bottom" title="Inactive">
             <td class="id">1</td>
             <td class="text">Expired Article</td>
-            <td class="text">1: Category 1</td>
+            <td class="text">1: Information</td>
             <td class="date">2016-01-25 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr class="active" data-toggle="tooltip" data-placement="bottom" title="Active">
             <td class="id">2</td>
             <td class="text">Active Article</td>
-            <td class="text">2: Category 2</td>
+            <td class="text">2: Update</td>
             <td class="date">2015-01-25 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr class="published" data-toggle="tooltip" data-placement="bottom" title="Published">
             <td class="id">3</td>
             <td class="text">Current Published Article</td>
-            <td class="text">2: Category 2</td>
+            <td class="text">2: Update</td>
             <td class="date">2015-09-01 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr class="error" data-toggle="tooltip" data-placement="bottom" title="This record has error.">
             <td class="id">4</td>
             <td class="text">Error Article</td>
-            <td class="text">3: Category 3</td>
+            <td class="text">3: Urgent</td>
             <td class="date">2015-09-01 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr>
             <td class="id">5</td>
-            <td class="text">Normal Article 1</td>
-            <td class="text">4: Category 4</td>
+            <td class="text">Article 1</td>
+            <td class="text">4: Apology</td>
             <td class="date">2015-09-01 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr>
             <td class="id">6</td>
-            <td class="text">Ralph</td>
-            <td class="text">Normal Article 2</td>
+            <td class="text">Article 2</td>
+            <td class="text">5: Report</td>
             <td class="date">2015-09-01 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
           <tr>
             <td class="id">7</td>
-            <td class="text">Michael</td>
-            <td class="text">Normal Article 3</td>
+            <td class="text">Article 3</td>
+            <td class="text">5: Report</td>
             <td class="date">2015-09-01 00:00:00</td>
             <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+            <td class="handler"><a href="form.html" class="afw-modal-iframe">Edit</a></td>
           </tr>
         </tbody>
       </table>
@@ -289,17 +275,17 @@
       </div>
     </div>
 
-    <script src="assets/js/jquery-2.2.0.min.js"></script>
-    <script src="assets/js/libraries.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-2.2.0.min.js"></script>
+    <script src="../assets/js/libraries.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="assets/scripts/smartmenus/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/smartmenus/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/select2/select2.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/js.cookie.js"></script>
-    <script type="text/javascript" src="assets/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/smartmenus/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/smartmenus/jquery.smartmenus.bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/select2/select2.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/js.cookie.js"></script>
+    <script type="text/javascript" src="../assets/scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="../assets/scripts/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 
-    <script src="assets/js/default.js"></script>
+    <script src="../assets/js/default.js"></script>
   </body>
 </html>
