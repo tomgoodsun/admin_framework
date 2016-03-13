@@ -86,34 +86,135 @@
       </div>
     </div>
 
-    <ol class="breadcrumb">
-      <li><a href="./">Home</a></li>
-      <li><a href="?section=main&amp;action=information">Information</a></li>
-      <li class="active">Data</li>
-    </ol>
+    <div class="container-fluid">
+      <h2>Header</h2>
+
+      <h3>Menubar</h3>
+      Using smartmenus. To know more details in <a href="http://www.smartmenus.org/download/" target="_blank">its website</a>.
+      <pre>&lt;!-- Static navbar --&gt;
+&lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
+  &lt;div class=&quot;navbar-header&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+      &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+      &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Project name @ env&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;navbar-collapse collapse&quot;&gt;
+
+    &lt;!-- Left nav --&gt;
+    &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+      &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;./&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;demo/&quot; target=&quot;_blank&quot;&gt;Demo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript: void(0)&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;General &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=main&amp;amp;action=information&quot;&gt;Information&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=main&amp;amp;action=cache_revision&quot;&gt;Cache Revision&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;#&quot;&gt;Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;ul class=&quot;dropdown-menu&quot;&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+              &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+              &lt;li class=&quot;dropdown-header&quot;&gt;Nav header&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript: void(0)&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Admin &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=general&amp;amp;action=admin_users&quot;&gt;Admin users&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=general&amp;amp;action=admin_profile&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=general&amp;amp;action=admin_privs&quot;&gt;Privileges&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=general&amp;amp;action=admin_menus&quot;&gt;Admin menus&lt;/a&gt;&lt;/li&gt;
+          &lt;li role=&quot;separator&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;javascript: void(0)&quot; class=&quot;afw-modal&quot; data-modal-element=&quot;afw-template-modal-about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Right nav --&gt;
+    &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+      &lt;li&gt;&lt;span class=&quot;afw-realtime-clock&quot;&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;bootstrap-navbar.html&quot;&gt;Default&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript: void(0)&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Administrator &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=admin&amp;amp;action=profile&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;?section=default&amp;amp;action=logout&quot;&gt;Logout&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Breadcrumb</h3>
+      <ol class="breadcrumb">
+        <li><a href="./">Home</a></li>
+        <li><a href="?section=main&amp;action=information">Information</a></li>
+        <li class="active">Data</li>
+      </ol>
+      <pre>&lt;ol class=&quot;breadcrumb&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;./&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;?section=main&amp;amp;action=information&quot;&gt;Information&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;active&quot;&gt;Data&lt;/li&gt;
+&lt;/ol&gt;</pre>
+    </div>
 
     <div class="container-fluid">
       <h2>Modal / Window Open Operations</h2>
 
       <h3>Window Openers</h3>
       <ul>
-        <li><a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a></li>
-        <li><a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a></li>
+        <li>
+          <a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a>
+          <pre>&lt;a href=&quot;http://www.yahoo.com&quot; class=&quot;afw-window&quot; name=&quot;test&quot; data-afw-options='{&quot;width&quot;:800,&quot;menubar&quot;:&quot;yes&quot;,&quot;location&quot;:&quot;yes&quot;,&quot;resizable&quot;:&quot;yes&quot;,&quot;scrollbars&quot;:&quot;yes&quot;,&quot;status&quot;:&quot;yes&quot;}'&gt;Open www.yahoo.com in new window&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a>
+          <pre>&lt;a href=&quot;index.html&quot; class=&quot;afw-auto-window&quot; target=&quot;_blank&quot; name=&quot;test&quot; data-afw-url=&quot;dummy.html&quot; data-afw-options='{&quot;width&quot;:800,&quot;menubar&quot;:&quot;yes&quot;,&quot;location&quot;:&quot;yes&quot;,&quot;resizable&quot;:&quot;yes&quot;,&quot;scrollbars&quot;:&quot;yes&quot;,&quot;status&quot;:&quot;yes&quot;}'&gt;Open dummy.html in new window automatically after next page is loaded&lt;/a&gt;</pre>
+        </li>
       </ul>
 
       <h3>IFRAME Modal</h3>
       <ul>
-        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a></li>
-        <li><a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a></li>
-        <li><a href="home.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a></li>
+        <li>
+          <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot;&gt;Open dummy.html in iframe modal&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot; title=&quot;this is dummy page&quot;&gt;Open dummy.html in iframe modal using title attribute as modal title&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe afw-modal-use-iframe-title&quot;&gt;Open dummy.html in iframe modal using iframe title as modal title&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot;&gt;Open dummy.html in iframe modal using &lt;strong&gt;&lt;em&gt;this text&lt;/em&gt;&lt;/strong&gt; as modal title&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot; data-afw-cookie-reload=&quot;reload-page&quot;&gt;Open page in iframe modal reloading when modal is cloded&lt;/a&gt;</pre>
+        </li>
+        <li>
+          <a href="home.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a>
+          <pre>&lt;a href=&quot;home.html&quot; class=&quot;afw-auto-modal-iframe&quot; target=&quot;_blank&quot; data-afw-url=&quot;dummy.html&quot;&gt;Open dummy.html in iframe modal automatically after next page is loaded&lt;/a&gt;</pre>
+        </li>
       </ul>
       
       <h3>Simple Modal</h3>
       <ul>
-        <li><a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a></li>
+        <li>
+          <a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a>
+          <pre>&lt;a href=&quot;javascript: void(0)&quot; class=&quot;afw-modal&quot; data-modal-element=&quot;afw-template-modal-about&quot;&gt;Open normal modal (About)&lt;/a&gt;</pre>
+        </li>
       </ul>
 
     </div>
@@ -202,6 +303,65 @@
           <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
         </ul>
       </nav>
+      <pre>&lt;table class=&quot;table afw-table&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th class=&quot;id&quot;&gt;ID&lt;/th&gt;
+      &lt;th class=&quot;text&quot;&gt;Name&lt;/th&gt;
+      &lt;th class=&quot;number&quot;&gt;&lt;span&gt;&lt;a href=&quot;#&quot; class=&quot;sort current asc&quot;&gt;Age&lt;/a&gt;&lt;/span&gt;&lt;/th&gt;
+      &lt;th class=&quot;date&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;sort current desc&quot;&gt;Registered Date&lt;/a&gt;&lt;/th&gt;
+      &lt;th class=&quot;term&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;sort asc&quot;&gt;Started Date&lt;/a&gt;&lt;br /&gt;- &lt;a href=&quot;#&quot; class=&quot;sort desc&quot;&gt;Ended Date&lt;/a&gt;&lt;/th&gt;
+      &lt;th class=&quot;handler&quot;&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr class=&quot;inactive&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;Inactive&quot;&gt;
+      &lt;td class=&quot;id&quot;&gt;1&lt;/td&gt;
+      &lt;td class=&quot;text&quot;&gt;Nick (Inactive)&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;21&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2016-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;term&quot;&gt;2015-01-25 00:00:00&lt;br /&gt;- 2016-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;handler&quot;&gt;&lt;a href=&quot;javascript: void(0)&quot;&gt;Edit&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;active&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;Active&quot;&gt;
+      &lt;td class=&quot;id&quot;&gt;2&lt;/td&gt;
+      &lt;td class=&quot;text&quot;&gt;Dolly (Active)&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;18&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2015-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;term&quot;&gt;2015-01-25 00:00:00&lt;br /&gt;- 2016-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;handler&quot;&gt;&lt;a href=&quot;javascript: void(0)&quot;&gt;Edit&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;published&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;Published&quot;&gt;
+      &lt;td class=&quot;id&quot;&gt;3&lt;/td&gt;
+      &lt;td class=&quot;text&quot;&gt;Judy (Published)&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;23&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2015-09-01 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;term&quot;&gt;2015-01-25 00:00:00&lt;br /&gt;- 2016-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;handler&quot;&gt;&lt;a href=&quot;javascript: void(0)&quot;&gt;Edit&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;error&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;bottom&quot; title=&quot;This record has error.&quot;&gt;
+      &lt;td class=&quot;id&quot;&gt;4&lt;/td&gt;
+      &lt;td class=&quot;text&quot;&gt;Cathy (Error)&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;24&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2015-09-01 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;term&quot;&gt;2015-01-25 00:00:00&lt;br /&gt;- 2016-01-25 00:00:00&lt;/td&gt;
+      &lt;td class=&quot;handler&quot;&gt;&lt;a href=&quot;javascript: void(0)&quot;&gt;Edit&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;nav&gt;
+  &lt;ul class=&quot;pagination&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Previous&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;laquo;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;active&quot;&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Next&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;raquo;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+
+    
     </div>
 
 
@@ -216,22 +376,35 @@
               <label for="form-input-email">Email address</label>
               <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
             </div>
+            <pre>&lt;label for=&quot;form-input-email&quot;&gt;Email address&lt;/label&gt;
+&lt;input type=&quot;email&quot; name=&quot;form-input-email&quot; class=&quot;form-control&quot; id=&quot;form-input-email&quot; placeholder=&quot;Email&quot; /&gt;</pre>
 
             <div class="form-group">
               <label for="form-input-password">Password</label>
               <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
             </div>
+            <pre>&lt;label for=&quot;form-input-password&quot;&gt;Password&lt;/label&gt;
+&lt;input type=&quot;password&quot; name=&quot;form-input-password&quot; class=&quot;form-control&quot; id=&quot;form-input-password&quot; placeholder=&quot;Password&quot; /&gt;</pre>
 
             <div class="form-group required">
               <label for="form-input-required-text" class="control-label">Required Input Form</label>
               <input type="text" name="form-input-required-text" class="form-control" id="form-input-required-text" placeholder="Required Text" />
             </div>
+            Give <code>required</code> to outer element class attribute, then script modifies <code>label.control-label</code> to required mode.<br />
+
+            <pre>&lt;div class=&quot;form-group required&quot;&gt;
+  &lt;label for=&quot;form-input-required-text&quot; class=&quot;control-label&quot;&gt;Required Input Form&lt;/label&gt;
+  &lt;input type=&quot;text&quot; name=&quot;form-input-required-text&quot; class=&quot;form-control&quot; id=&quot;form-input-required-text&quot; placeholder=&quot;Required Text&quot; /&gt;
+&lt;/div&gt;</pre>
 
             <div class="form-group">
               <label for="form-input-file">File input</label>
               <input type="file" name="form-input-file" id="form-input-file" />
               <p class="help-block">Example block-level help text here.</p>
             </div>
+            <pre>&lt;label for=&quot;form-input-file&quot;&gt;File input&lt;/label&gt;
+&lt;input type=&quot;file&quot; name=&quot;form-input-file&quot; id=&quot;form-input-file&quot; /&gt;
+&lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;</pre>
 
             <div class="form-group form-inline">
               <label for="form-select-one">Select One</label>
@@ -244,6 +417,12 @@
                 <option value="5">5</option>
               </select>
             </div>
+            <pre>&lt;label for=&quot;form-select-one&quot;&gt;Select One&lt;/label&gt;
+&lt;select name=&quot;form-select&quot; class=&quot;form-control&quot; id=&quot;form-select-one&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Select --&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+  ...
+&lt;/select&gt;</pre>
 
             <div class="form-group form-inline">
               <label for="form-select-one-select2">Select One with Select2</label>
@@ -271,6 +450,12 @@
                 <option value="20">巫女 GNYO/Linux </option>
               </select>
             </div>
+            <pre>&lt;label for=&quot;form-select-one-select2&quot;&gt;Select One with Select2&lt;/label&gt;
+&lt;select name=&quot;form-ubuntu-family&quot; class=&quot;form-control afw-select2&quot; id=&quot;form-select-one-select2&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Select Ubuntu Family --&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;Ubuntu&lt;/option&gt;
+  ...
+&lt;/select&gt;</pre>
 
             <div class="form-group form-inline afw-select2-wrapper">
               <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
@@ -298,6 +483,13 @@
                 <option value="20">巫女 GNYO/Linux </option>
               </select>
             </div>
+            Give <code>afw-select2-wrapper</code> to outer element class attribute.<br />
+            <pre>&lt;div class=&quot;form-group form-inline afw-select2-wrapper&quot;&gt;
+  &lt;label for=&quot;form-wrapped-select-one-select2&quot;&gt;Wrapped Select One with Select2&lt;/label&gt;
+  &lt;select name=&quot;form-ubuntu-family-wrapped&quot; class=&quot;form-control&quot; id=&quot;form-wrapped-select-one-select2&quot;&gt;
+    ...
+  &lt;/select&gt;
+&lt;/div&gt;</pre>
 
             <div class="form-group">
               <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
@@ -370,16 +562,23 @@
                   <label for="form-datetimepicker">Date/Time Picker</label>
                   <input type="input" name="form-datetimepicker" id="form-datetimepicker" class="form-control afw-datetimepicker" value="" />
                 </div>
+                <pre>&lt;label for=&quot;form-datetimepicker&quot;&gt;Date/Time Picker&lt;/label&gt;
+&lt;input type=&quot;input&quot; name=&quot;form-datetimepicker&quot; id=&quot;form-datetimepicker&quot; class=&quot;form-control afw-datetimepicker&quot; value=&quot;&quot; /&gt;</pre>
 
                 <div class="form-group afw-datetimepicker-wrapper">
                   <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker</label>
                   <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
                 </div>
+                Give <code>afw-datetimepicker-wrapper</code> to outer element class attribute.<br />
+                <pre>&lt;label for=&quot;form-wrapped-datetimepicker&quot;&gt;Wrapped Date/Time Picker&lt;/label&gt;
+&lt;input type=&quot;input&quot; name=&quot;form-wrapped-datetimepicker&quot; id=&quot;form-wrapped-datetimepicker&quot; class=&quot;form-control&quot; value=&quot;&quot; /&gt;</pre>
 
                 <div class="form-group afw-datetimepicker-wrapper" data-afw-options='{"timepicker":false,"format":"Y-m-d","language":"ja-JP"}'>
                   <label for="form-wrapped-datetimepicker">Wrapped Date/Time Picker with <code>data-afw-options</code></label>
                   <input type="input" name="form-wrapped-datetimepicker" id="form-wrapped-datetimepicker" class="form-control" value="" />
                 </div>
+                <pre>&lt;label for=&quot;form-wrapped-datetimepicker&quot;&gt;Wrapped Date/Time Picker with &lt;code&gt;data-afw-options&lt;/code&gt;&lt;/label&gt;
+&lt;input type=&quot;input&quot; name=&quot;form-wrapped-datetimepicker&quot; id=&quot;form-wrapped-datetimepicker&quot; class=&quot;form-control&quot; value=&quot;&quot; /&gt;</pre>
               </div>
             </div>
 
@@ -387,11 +586,18 @@
               <label for="form-textarea-tinymce">TinyMCE integrated with Roxy Fileman</label>
               <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>
             </div>
+            <pre>&lt;label for=&quot;form-textarea-tinymce&quot;&gt;TinyMCE integrated with Roxy Fileman&lt;/label&gt;
+&lt;textarea name=&quot;form-textarea-tinymce&quot; class=&quot;afw-textarea-tinymce&quot; id=&quot;form-textarea-tinymce&quot;&gt;&lt;/textarea&gt;</pre>
 
             <div class="form-group form-inline afw-textarea-tinymce-wrapper">
               <label for="form-wrapped-textarea-tinymce">Wrapped TinyMCE integrated with Roxy Fileman</label>
               <textarea name="form-wrapped-textarea-tinymce" id="form-wrapped-textarea-tinymce"></textarea>
             </div>
+                Give <code>afw-textarea-tinymce-wrapper</code> to outer element class attribute.<br />
+            <pre>&lt;div class=&quot;form-group form-inline afw-textarea-tinymce-wrapper&quot;&gt;
+  &lt;label for=&quot;form-wrapped-textarea-tinymce&quot;&gt;Wrapped TinyMCE integrated with Roxy Fileman&lt;/label&gt;
+  &lt;textarea name=&quot;form-wrapped-textarea-tinymce&quot; id=&quot;form-wrapped-textarea-tinymce&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;</pre>
 
           </div>
         </div>
