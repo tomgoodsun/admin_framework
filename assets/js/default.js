@@ -18,14 +18,14 @@ var AfwConfig = {
       expr: '#afw-login-screen .login-form'
     },
     Select2: {
-      wrappedExpr: '.afw-select2-wrapper select',
+      wrapperExpr: '.afw-select2-wrapper',
       className: 'afw-select2',
       options: {
         theme: 'bootstrap'
       }
     },
     Select2Ajax: {
-      wrappedExpr: '.afw-select2-ajax-wrapper select',
+      wrapperExpr: '.afw-select2-ajax-wrapper',
       className: 'afw-select2-ajax',
       options: {
         theme: 'bootstrap',

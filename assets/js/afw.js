@@ -162,8 +162,14 @@
         jQuery(config.expr).find('input').first().focus();
       },
       initSelect2: function (config) {
-        jQuery(config.wrappedExpr).each(function () {
-          Afw.Utility.addClass(jQuery(this), config.className);
+        jQuery(config.wrapperExpr).each(function () {
+          var ajaxUrl = jQuery(this).data('ajax--url');
+          jQuery(this).find('select').each(function () {
+            Afw.Utility.addClass(jQuery(this), config.className);
+            if (ajaxUrl !== undefined) {
+              jQuery(this).data('ajax--url', ajaxUrl);
+            }
+          });
         });
         jQuery('select.' + config.className).select2(config.options);
       },
