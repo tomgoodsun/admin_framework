@@ -171,13 +171,13 @@ body.fixed-nav {
   margin: 0 0 0 5px;
   width: 16px;
 }
-.afw-table th.current a.asc .arrow {
+.afw-table .current a.asc .arrow {
   background-image: url(../images/sort_up_active.png);
 }
 .afw-table th a.asc:hover .arrow {
   background-image: url(../images/sort_down.png);
 }
-.afw-table th.current a.desc .arrow {
+.afw-table .current a.desc .arrow {
   background-image: url(../images/sort_down_active.png);
 }
 .afw-table th a.desc:hover .arrow {

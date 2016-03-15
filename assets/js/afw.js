@@ -296,8 +296,8 @@
         jQuery('.table a.sort').each(function (index) {
           var elem = jQuery(this);
           if (elem.hasClass('current')) {
-            elem.parent().addClass('current');
             elem.removeClass('current');
+            elem.wrap('<span class="current"></span>');
           }
           elem.html(elem.html() + '<span class="arrow"></span>');
         });
