@@ -1,0 +1,26 @@
+body.example {
+  background: #eee;
+  color: #666;
+  padding-top: 50px;
+}
+.example .wrapper {
+  background: #fff;
+  margin: 0 auto 0 auto;
+  width: 80%;
+}
+.example .wrapper h1,
+.example .wrapper h2,
+.example .wrapper h3,
+.example .wrapper h4,
+.example .wrapper h5,
+.example .wrapper h6 {
+  border-bottom: 1px solid #666;
+  line-height: 1.5em;
+}
+.example .wrapper .sample {
+  margin-bottom: 10px;
+  padding: 0 20px 10px 20px;
+}
+
+
+

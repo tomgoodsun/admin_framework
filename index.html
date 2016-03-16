@@ -22,8 +22,9 @@
     <link rel="stylesheet" href="assets/scripts/select2/select2-bootstrap.min.css" />
     <link rel="stylesheet" href="assets/scripts/datetimepicker/jquery.datetimepicker.css" />
     <link rel="stylesheet" href="assets/css/afw.css" />
+    <link rel="stylesheet" href="assets/css/default.css" />
   </head>
-  <body class="fixed-nav">
+  <body class="fixed-nav example">
     <!-- Static navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="navbar-header">
@@ -86,12 +87,13 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <h2>Header</h2>
+    <div class="wrapper">
+      <div class="container-fluid">
+        <h2>Header</h2>
 
-      <h3>Menubar</h3>
-      Using smartmenus. To know more details in <a href="http://www.smartmenus.org/download/" target="_blank">its website</a>.
-      <pre>&lt;!-- Static navbar --&gt;
+        <h3>Menubar</h3>
+        Using smartmenus. To know more details in <a href="http://www.smartmenus.org/download/" target="_blank">its website</a>.
+        <pre>&lt;!-- Static navbar --&gt;
 &lt;div class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;
   &lt;div class=&quot;navbar-header&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
@@ -153,71 +155,106 @@
   &lt;/div&gt;
 &lt;/div&gt;</pre>
 
-      <h3>Breadcrumb</h3>
-      <ol class="breadcrumb">
-        <li><a href="./">Home</a></li>
-        <li><a href="?section=main&amp;action=information">Information</a></li>
-        <li class="active">Data</li>
-      </ol>
-      <pre>&lt;ol class=&quot;breadcrumb&quot;&gt;
+        <h3>Breadcrumb</h3>
+        <ol class="breadcrumb">
+          <li><a href="./">Home</a></li>
+          <li><a href="?section=main&amp;action=information">Information</a></li>
+          <li class="active">Data</li>
+        </ol>
+        <pre>&lt;ol class=&quot;breadcrumb&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;./&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;?section=main&amp;amp;action=information&quot;&gt;Information&lt;/a&gt;&lt;/li&gt;
   &lt;li class=&quot;active&quot;&gt;Data&lt;/li&gt;
 &lt;/ol&gt;</pre>
-    </div>
+      </div>
 
-    <div class="container-fluid">
-      <h2>Modal / Window Open Operations</h2>
+      <div class="container-fluid">
+        <h2>Modal / Window Open Operations</h2>
 
-      <h3>Window Openers</h3>
-      <ul>
-        <li>
+        <h3>Window Openers</h3>
+
+        <div class="sample">
+          <h4>Open URL of <code>href</code> in new window</h4>
+          <p>
+          Open new window. Some browsers do not allow open new window by JavaScript for security. Please be advised this is not effective in that case.<br />
+          You just give <code>afw-window</code> to class attributes of anchor tags.<br />
+          And <code>data-afw-options</code> attribute is available to specifyf detail settings.
+          </p>
           <a href="http://www.yahoo.com" class="afw-window" name="test" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open www.yahoo.com in new window</a>
           <pre>&lt;a href=&quot;http://www.yahoo.com&quot; class=&quot;afw-window&quot; name=&quot;test&quot; data-afw-options='{&quot;width&quot;:800,&quot;menubar&quot;:&quot;yes&quot;,&quot;location&quot;:&quot;yes&quot;,&quot;resizable&quot;:&quot;yes&quot;,&quot;scrollbars&quot;:&quot;yes&quot;,&quot;status&quot;:&quot;yes&quot;}'&gt;Open www.yahoo.com in new window&lt;/a&gt;</pre>
-        </li>
-        <li>
+        </div>
+
+        <div class="sample">
+          <h4>Open specified URL in new window automatically after moving to next page</h4>
+          <p>
+          Open new window automatically after moving to next page.<br />
+          You just give <code>afw-auto-window</code> to attributes of anchor tags.<br />
+          <code>data-afw-options</code> attribute is also available and you have to set <code>data-afw-url</code> attribute whose value is URL that load in automatically open window.
+          </p>
           <a href="index.html" class="afw-auto-window" target="_blank" name="test" data-afw-url="dummy.html" data-afw-options='{"width":800,"menubar":"yes","location":"yes","resizable":"yes","scrollbars":"yes","status":"yes"}'>Open dummy.html in new window automatically after next page is loaded</a>
           <pre>&lt;a href=&quot;index.html&quot; class=&quot;afw-auto-window&quot; target=&quot;_blank&quot; name=&quot;test&quot; data-afw-url=&quot;dummy.html&quot; data-afw-options='{&quot;width&quot;:800,&quot;menubar&quot;:&quot;yes&quot;,&quot;location&quot;:&quot;yes&quot;,&quot;resizable&quot;:&quot;yes&quot;,&quot;scrollbars&quot;:&quot;yes&quot;,&quot;status&quot;:&quot;yes&quot;}'&gt;Open dummy.html in new window automatically after next page is loaded&lt;/a&gt;</pre>
-        </li>
-      </ul>
+        </div>
 
-      <h3>IFRAME Modal</h3>
-      <ul>
-        <li>
+        <h3>IFRAME Modal</h3>
+        <div class="sample">
+          <h4>Open specified URL in iframe modal</h4>
+          <p>
+          Open modal window with IFRAME.<br />
+          Give <code>afw-modal-iframe</code> to attributes of anchor tags.<br />
+          If anchor tag has title attribute, that will be used for title of modal.<br />
+          If no title attribute on clicked anchor element, innerHTML of clicked anchor element will be used.<br />
+          If anchor tag has <code>data-afw-url</code>, clicking anchor tag is to move to URL of href, and after page is loaded, open URL of <code>data-afw-url</code> in modal automtically.
+          </p>
           <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal</a>
           <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot;&gt;Open dummy.html in iframe modal&lt;/a&gt;</pre>
-        </li>
-        <li>
           <a href="dummy.html" class="afw-modal-iframe" title="this is dummy page">Open dummy.html in iframe modal using title attribute as modal title</a>
           <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot; title=&quot;this is dummy page&quot;&gt;Open dummy.html in iframe modal using title attribute as modal title&lt;/a&gt;</pre>
-        </li>
-        <li>
-          <a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a>
-          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe afw-modal-use-iframe-title&quot;&gt;Open dummy.html in iframe modal using iframe title as modal title&lt;/a&gt;</pre>
-        </li>
-        <li>
           <a href="dummy.html" class="afw-modal-iframe">Open dummy.html in iframe modal using <strong><em>this text</em></strong> as modal title</a>
           <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot;&gt;Open dummy.html in iframe modal using &lt;strong&gt;&lt;em&gt;this text&lt;/em&gt;&lt;/strong&gt; as modal title&lt;/a&gt;</pre>
-        </li>
-        <li>
-          <a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a>
-          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot; data-afw-cookie-reload=&quot;reload-page&quot;&gt;Open page in iframe modal reloading when modal is cloded&lt;/a&gt;</pre>
-        </li>
-        <li>
           <a href="home.html" class="afw-auto-modal-iframe" target="_blank" data-afw-url="dummy.html">Open dummy.html in iframe modal automatically after next page is loaded</a>
           <pre>&lt;a href=&quot;home.html&quot; class=&quot;afw-auto-modal-iframe&quot; target=&quot;_blank&quot; data-afw-url=&quot;dummy.html&quot;&gt;Open dummy.html in iframe modal automatically after next page is loaded&lt;/a&gt;</pre>
-        </li>
-      </ul>
-      
-      <h3>Simple Modal</h3>
-      <ul>
-        <li>
-          <a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a>
-          <pre>&lt;a href=&quot;javascript: void(0)&quot; class=&quot;afw-modal&quot; data-modal-element=&quot;afw-template-modal-about&quot;&gt;Open normal modal (About)&lt;/a&gt;</pre>
-        </li>
-      </ul>
+        </div>
 
-    </div>
+        <div class="sample">
+          <h4>Open specified URL in iframe modal using iframe title as modal title</h4>
+          <p>
+          Open modal window with IFRAME whose title is got from title of page shown in IFRAME.<br />
+          Give <code>afw-modal-iframe afw-modal-use-iframe-title</code> to attributes of anchor tags.
+          </p>
+          <a href="dummy.html" class="afw-modal-iframe afw-modal-use-iframe-title">Open dummy.html in iframe modal using iframe title as modal title</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe afw-modal-use-iframe-title&quot;&gt;Open dummy.html in iframe modal using iframe title as modal title&lt;/a&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Open page in iframe modal reloading when modal is cloded</h4>
+          <p>
+          Open modal window with IFRAME, but current page is refreshed after modal is closed.<br />
+          Give <code>data-afw-cookie-reload</code> attribute with your optional value.
+          </p>
+          <a href="dummy.html" class="afw-modal-iframe" data-afw-cookie-reload="reload-page">Open page in iframe modal reloading when modal is cloded</a>
+          <pre>&lt;a href=&quot;dummy.html&quot; class=&quot;afw-modal-iframe&quot; data-afw-cookie-reload=&quot;reload-page&quot;&gt;Open page in iframe modal reloading when modal is cloded&lt;/a&gt;</pre>
+        </div>
+
+        <h3>Simple Modal</h3>
+        <div class="sample">
+          <h4>Open normal modal</h4>
+          <p>
+          Open simplest modal window.<br />
+          Give <code>afw-modal</code> to class attributes of anchor tags and <code>data-modal-element</code> attributes with value that specify value of id attribute of modal window element.
+          </p>
+          <a href="javascript: void(0)" class="afw-modal" data-modal-element="afw-template-modal-about">Open normal modal (About)</a>
+          <pre>&lt;a href=&quot;javascript: void(0)&quot; class=&quot;afw-modal&quot; data-modal-element=&quot;afw-template-modal-about&quot;&gt;Open normal modal (About)&lt;/a&gt;
+            
+&lt;!-- Modal: about --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;afw-template-modal-about&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+        </div>
+      </div>
     <div class="container-fluid">
       <h2>List Views (Table)</h2>
 
@@ -721,6 +758,7 @@
         </tr>
       </table>
 
+    </div>
     </div>
 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
