@@ -255,92 +255,134 @@
 
         </div>
       </div>
-    <div class="container-fluid">
-      <h2>List Views (Table)</h2>
+      <div class="container-fluid">
+        <h2>List Views (Table)</h2>
 
-      <h3>Simple Table</h3>
-      <table class="table afw-table">
-        <thead>
-          <tr>
-            <th class="id">ID</th>
-            <th class="text">Name</th>
-            <th class="number"><span><a href="#" class="sort asc">Age</a></span></th>
-            <th class="date"><a href="#" class="sort desc">Registered Date</a></th>
-            <th class="term"><a href="#" class="sort current asc">Started Date</a><br />- <a href="#" class="sort desc">Ended Date</a></th>
-            <th class="handler"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="inactive" data-toggle="tooltip" data-placement="bottom" title="Inactive">
-            <td class="id">1</td>
-            <td class="text">Nick (Inactive)</td>
-            <td class="number">21</td>
-            <td class="date">2016-01-25 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr class="active" data-toggle="tooltip" data-placement="bottom" title="Active">
-            <td class="id">2</td>
-            <td class="text">Dolly (Active)</td>
-            <td class="number">18</td>
-            <td class="date">2015-01-25 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr class="published" data-toggle="tooltip" data-placement="bottom" title="Published">
-            <td class="id">3</td>
-            <td class="text">Judy (Published)</td>
-            <td class="number">23</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr class="error" data-toggle="tooltip" data-placement="bottom" title="This record has error.">
-            <td class="id">4</td>
-            <td class="text">Cathy (Error)</td>
-            <td class="number">24</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr>
-            <td class="id">5</td>
-            <td class="text">George</td>
-            <td class="number">27</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr>
-            <td class="id">6</td>
-            <td class="text">Ralph</td>
-            <td class="number">22</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-          <tr>
-            <td class="id">7</td>
-            <td class="text">Michael</td>
-            <td class="number">21</td>
-            <td class="date">2015-09-01 00:00:00</td>
-            <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
-            <td class="handler"><a href="javascript: void(0)">Edit</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <nav>
-        <ul class="pagination">
-          <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#"><span class="active">3</span></a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-        </ul>
-      </nav>
-      <pre>&lt;table class=&quot;table afw-table&quot;&gt;
+        <h3>Simple Table</h3>
+        <div class="sample">
+          <h4>Table</h4>
+          <p>
+          Give <code>afw-table</code> to class attributes of table tags.<br />
+          </p>
+
+          <h4>Table with row colors</h4>
+          <p>
+          You can change row style giving class attribute.<br />
+          You can confirm this style on Sample section on this chapter.
+            <ul>
+              <li><code>inactive</code></li>
+              <li><code>active</code></li>
+              <li><code>published</code></li>
+              <li><code>error</code></li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="sample">
+          <h4>Table header with sorting style</h4>
+          <p>
+          You can change row style giving class attribute.<br />
+          Wrap the table heading text with anchor tag giving class attrbute <code>sort</code>, and sort order <code>asc</code> or <code>desc</code> like the below:<br />
+          You can confirm this style on Sample section on this chapter.
+          <pre>&lt;th&gt;&lt;a href=&quot;javascript: void(0);&quot; class=&quot;sort desc&quot;&gt;Date&lt;/a&gt;&lt;/th&gt;</pre>
+          </p>
+        </div>
+
+        <div class="sample">
+          <h4>Pagination navigation</h4>
+          <p>
+          Almost all methods are along with Bootstrap manual.<br />
+          If element with <code>span.active</code> under the anchor tag of page, that equals that parent anchor tag has <code>.active</code>.
+          </p>
+          <pre>&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;active&quot;&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Samples</h4>
+          <table class="table afw-table">
+            <thead>
+              <tr>
+                <th class="id">ID</th>
+                <th class="text">Name</th>
+                <th class="number"><span><a href="#" class="sort asc">Age</a></span></th>
+                <th class="date"><a href="#" class="sort desc">Registered Date</a></th>
+                <th class="term"><a href="#" class="sort current asc">Started Date</a><br />- <a href="#" class="sort desc">Ended Date</a></th>
+                <th class="handler"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="inactive" data-toggle="tooltip" data-placement="bottom" title="Inactive">
+                <td class="id">1</td>
+                <td class="text">Nick (Inactive)</td>
+                <td class="number">21</td>
+                <td class="date">2016-01-25 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr class="active" data-toggle="tooltip" data-placement="bottom" title="Active">
+                <td class="id">2</td>
+                <td class="text">Dolly (Active)</td>
+                <td class="number">18</td>
+                <td class="date">2015-01-25 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr class="published" data-toggle="tooltip" data-placement="bottom" title="Published">
+                <td class="id">3</td>
+                <td class="text">Judy (Published)</td>
+                <td class="number">23</td>
+                <td class="date">2015-09-01 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr class="error" data-toggle="tooltip" data-placement="bottom" title="This record has error.">
+                <td class="id">4</td>
+                <td class="text">Cathy (Error)</td>
+                <td class="number">24</td>
+                <td class="date">2015-09-01 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr>
+                <td class="id">5</td>
+                <td class="text">George</td>
+                <td class="number">27</td>
+                <td class="date">2015-09-01 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr>
+                <td class="id">6</td>
+                <td class="text">Ralph</td>
+                <td class="number">22</td>
+                <td class="date">2015-09-01 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+              <tr>
+                <td class="id">7</td>
+                <td class="text">Michael</td>
+                <td class="number">21</td>
+                <td class="date">2015-09-01 00:00:00</td>
+                <td class="term">2015-01-25 00:00:00<br />- 2016-01-25 00:00:00</td>
+                <td class="handler"><a href="javascript: void(0)">Edit</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination">
+              <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#"><span class="active">3</span></a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            </ul>
+          </nav>
+          <pre>&lt;table class=&quot;table afw-table&quot;&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th class=&quot;id&quot;&gt;ID&lt;/th&gt;
@@ -397,107 +439,76 @@
     &lt;li&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Next&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;raquo;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;</pre>
+        </div>
+      </div>
 
-    
-    </div>
+      <div class="container-fluid">
+        <h2>Form</h2>
 
+        <h3>General Form Format</h3>
 
-    <div class="container-fluid">
-      <h2>Form</h2>
+        <div class="sample">
+          <h4>Enter-presses submittion control</h4>
+          <p>
+          If you don't want to submit form with pressing enter key, give <code>disable-enter-key</code> to class attribute of form element.
+          </p>
+          <pre>&lt;form method=&quot;post&quot; action=&quot;./&quot; class=&quot;disable-enter-key&quot;&gt;
+  ...
+&lt;/form&gt;</pre>
+        </div>
 
-      <form method="post" action="./" class="disable-enter-key">
-        <div class="row">
-          <div class="col-md-4">
-            <h3>General Form Format</h3>
-            <div class="form-group">
-              <label for="form-input-email">Email address</label>
-              <input type="email" name="form-input-email" class="form-control" id="form-input-email" placeholder="Email" />
-            </div>
-            <pre>&lt;input type=&quot;email&quot; name=&quot;form-input-email&quot; class=&quot;form-control&quot; id=&quot;form-input-email&quot; placeholder=&quot;Email&quot; /&gt;</pre>
-
-            <div class="form-group">
-              <label for="form-input-password">Password</label>
-              <input type="password" name="form-input-password" class="form-control" id="form-input-password" placeholder="Password" />
-            </div>
-            <pre>&lt;input type=&quot;password&quot; name=&quot;form-input-password&quot; class=&quot;form-control&quot; id=&quot;form-input-password&quot; placeholder=&quot;Password&quot; /&gt;</pre>
-
-            <div class="form-group required">
-              <label for="form-input-required-text" class="control-label">Required Input Form</label>
-              <input type="text" name="form-input-required-text" class="form-control" id="form-input-required-text" placeholder="Required Text" />
-            </div>
-            Give <code>required</code> to outer element class attribute, then script modifies <code>label.control-label</code> to required mode.<br />
-
-            <pre>&lt;div class=&quot;form-group required&quot;&gt;
+        <div class="sample">
+          <h4>Quired field</h4>
+          <p>
+          Give <code>required</code> to outer element class attribute, then script modifies <code>label.control-label</code> to required mode.<br />
+          </p>
+          <div class="form-group required">
+            <label for="form-input-required-text" class="control-label">Required Input Form</label>
+            <input type="text" name="form-input-required-text" class="form-control" id="form-input-required-text" placeholder="Required Text" />
+          </div>
+          <pre>&lt;div class=&quot;form-group required&quot;&gt;
   &lt;label for=&quot;form-input-required-text&quot; class=&quot;control-label&quot;&gt;Required Input Form&lt;/label&gt;
   &lt;input type=&quot;text&quot; name=&quot;form-input-required-text&quot; class=&quot;form-control&quot; id=&quot;form-input-required-text&quot; placeholder=&quot;Required Text&quot; /&gt;
 &lt;/div&gt;</pre>
-
-            <div class="form-group">
-              <label for="form-input-file">File input</label>
-              <input type="file" name="form-input-file" id="form-input-file" />
-              <p class="help-block">Example block-level help text here.</p>
-            </div>
-            <pre>&lt;input type=&quot;file&quot; name=&quot;form-input-file&quot; id=&quot;form-input-file&quot; /&gt;
-&lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;</pre>
-
-            <div class="form-group">
-              <label>Checkbox (Normal)</label><br />
-              <div class="checkbox">
-                <label><input type="checkbox" value="1" /> Check me out</label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Checkbox</label><br />
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off" checked> Checkbox 1 (pre-checked)
-                </label>
-                <label class="btn btn-primary">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 2
-                </label>
-                <label class="btn btn-primary">
-                  <input type="checkbox" name="form-checkbox[]" autocomplete="off"> Checkbox 3
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Radio</label><br />
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-primary active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
-                </label>
-                <label class="btn btn-primary">
-                  <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-8">
-            <h3>Textarea with WYSIWYG editor</h3>
-            <div class="form-group form-inline">
-              <label for="form-textarea-tinymce">TinyMCE integrated with Roxy Fileman</label>
-              <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>
-            </div>
-            <pre>&lt;textarea name=&quot;form-textarea-tinymce&quot; class=&quot;afw-textarea-tinymce&quot; id=&quot;form-textarea-tinymce&quot;&gt;&lt;/textarea&gt;</pre>
-
-            <div class="form-group form-inline afw-textarea-tinymce-wrapper">
-              <label for="form-wrapped-textarea-tinymce">Wrapped TinyMCE integrated with Roxy Fileman</label>
-              <textarea name="form-wrapped-textarea-tinymce" id="form-wrapped-textarea-tinymce"></textarea>
-            </div>
-                Give <code>afw-textarea-tinymce-wrapper</code> to outer element class attribute.<br />
-            <pre>&lt;div class=&quot;form-group form-inline afw-textarea-tinymce-wrapper&quot;&gt;
-  &lt;textarea name=&quot;form-wrapped-textarea-tinymce&quot; id=&quot;form-wrapped-textarea-tinymce&quot;&gt;&lt;/textarea&gt;
-&lt;/div&gt;</pre>
-
-          </div>
         </div>
 
+        <div class="sample">
+          <h4>Help block</h4>
+          <pre>&lt;input type=&quot;file&quot; name=&quot;form-input-file&quot; id=&quot;form-input-file&quot; /&gt;
+&lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;</pre>
+        </div>
+
+        <h3>Textarea with WYSIWYG editor</h3>
+        <div class="sample">
+          <h4>Specify class attribute on textarea tag</h4>
+          <div class="form-group form-inline">
+            <label for="form-textarea-tinymce">TinyMCE integrated with Roxy Fileman</label>
+            <textarea name="form-textarea-tinymce" class="afw-textarea-tinymce" id="form-textarea-tinymce"></textarea>
+          </div>
+          <pre>&lt;textarea name=&quot;form-textarea-tinymce&quot; class=&quot;afw-textarea-tinymce&quot; id=&quot;form-textarea-tinymce&quot;&gt;&lt;/textarea&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Specify with outer tag of textarea</h4>
+          <p>
+          Give <code>afw-textarea-tinymce-wrapper</code> to outer element class attribute.<br />
+          </p>
+          <div class="form-group form-inline afw-textarea-tinymce-wrapper">
+            <label for="form-wrapped-textarea-tinymce">Wrapped TinyMCE integrated with Roxy Fileman</label>
+            <textarea name="form-wrapped-textarea-tinymce" id="form-wrapped-textarea-tinymce"></textarea>
+          </div>
+          <pre>&lt;div class=&quot;form-group form-inline afw-textarea-tinymce-wrapper&quot;&gt;
+  &lt;textarea name=&quot;form-wrapped-textarea-tinymce&quot; id=&quot;form-wrapped-textarea-tinymce&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;</pre>
+          </div>
+
+      </div>
+
+    <div class="container-fluid">
+      <h2>Form</h2>
+      <h3>General Form Format</h3>
+
+      <form method="post" action="./" class="disable-enter-key">
         <h3>Select boxes showcase</h3>
         <div class="row">
           <div class="col-md-6">
@@ -760,15 +771,6 @@
 
     </div>
     </div>
-
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
     <!-- Loading -->
     <div id="afw-full-screen"><div class="outer"><div class="inner"><img src="assets/images/loading.svg" alt="Loading" /></div></div></div>
