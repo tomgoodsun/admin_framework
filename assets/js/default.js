@@ -3,6 +3,9 @@ var languages = {
   "TEXT2": "This is test. Number %s."
 };
 var AfwConfig = {
+  Date: {
+    url: '/admin_framework/assets/bin/date.php'
+  },
   Form: {
     disableEnterSubmissionClassName: 'form.disable-enter-key',
     DateTimePicker: {

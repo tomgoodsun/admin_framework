@@ -2,9 +2,10 @@
   Afw = AdminFramework = {
     Date: {
       init: function () {
-        this.initRealTimeClock();
+        var config = AfwConfig.Date;
+        this.initRealTimeClock(config);
       },
-      initRealTimeClock: function () {
+      initRealTimeClock: function (config) {
         var currentTime = Date.now();
         var countTime = function () {
           currentTime += 1000;
@@ -16,7 +17,7 @@
         setTimeout(countTime, 1000);
         var retrieveServerDate = function () {
           jQuery.ajax({
-            url: '/admin_framework/assets/bin/date.php',
+            url: config.url,
             dataType: 'json'
           }).success(function(data) {
             currentTime = parseInt(data.time, 10) * 1000;
