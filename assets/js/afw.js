@@ -130,11 +130,14 @@
         jQuery('.' + config.wrapperClassName).each(function () {
           var elem = jQuery(this);
           elem.find('input').each(function () {
-            if (Afw.Utility.hasDataAttr(elem, 'options')) {
-              var options = Afw.Utility.getDataAttr(elem, 'options');
-              Afw.Utility.setDataAttr(jQuery(this), 'options', options);
+            var type = jQuery(this).prop('type');
+            if (type == 'date' || type == 'text') {
+              if (Afw.Utility.hasDataAttr(elem, 'options')) {
+                var options = Afw.Utility.getDataAttr(elem, 'options');
+                Afw.Utility.setDataAttr(jQuery(this), 'options', options);
+              }
+              Afw.Utility.addClass(jQuery(this), config.className);
             }
-            Afw.Utility.addClass(jQuery(this), config.className);
           });
         });
         jQuery('.' + config.className).each(function () {
