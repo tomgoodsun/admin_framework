@@ -127,7 +127,6 @@
         this.initTextAreaTinyMce(config.TinyMce);
       },
       initDateTimePicker: function (config) {
-        jQuery(config.wrapperClassName)
         jQuery('.' + config.wrapperClassName).each(function () {
           var elem = jQuery(this);
           elem.find('input').each(function () {

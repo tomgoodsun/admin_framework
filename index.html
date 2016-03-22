@@ -500,7 +500,133 @@
           <pre>&lt;div class=&quot;form-group form-inline afw-textarea-tinymce-wrapper&quot;&gt;
   &lt;textarea name=&quot;form-wrapped-textarea-tinymce&quot; id=&quot;form-wrapped-textarea-tinymce&quot;&gt;&lt;/textarea&gt;
 &lt;/div&gt;</pre>
+        </div>
+
+        <h3>Select boxes</h3>
+        <div class="sample">
+          <h4>Select One</h4>
+          <select name="form-select" class="form-control" id="form-select-one">
+            <option value="">-- Select --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <pre>&lt;select name=&quot;form-select&quot; class=&quot;form-control&quot; id=&quot;form-select-one&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Select --&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+  ...
+&lt;/select&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Select One with Select2</h4>
+          <select name="form-ubuntu-family" class="form-control afw-select2" id="form-select-one-select2">
+            <option value="">-- Select Ubuntu Family --</option>
+            <option value="1">Ubuntu</option>
+            <option value="2">Basix</option>
+            <option value="3">elementary OS</option>
+            <option value="4">Edubuntu</option>
+            <option value="5">Elbuntu</option>
+            <option value="6">Gobuntu</option>
+            <option value="7">Goobuntu</option>
+            <option value="8">Kubuntu</option>
+            <option value="9">Kona Linux</option>
+            <option value="10">LinuxBean</option>
+            <option value="11">Linux Mint</option>
+            <option value="12">Lubuntu</option>
+            <option value="13">nUbuntu</option>
+            <option value="14">Peppermint</option>
+            <option value="15">Ubuntu Christian Edition</option>
+            <option value="16">Ubuntu Lite</option>
+            <option value="17">Ubuntu Studio</option>
+            <option value="18">Xubuntu</option>
+            <option value="19">zUbuntu</option>
+            <option value="20">巫女 GNYO/Linux </option>
+          </select>
+          <pre>&lt;select name=&quot;form-ubuntu-family&quot; class=&quot;form-control afw-select2&quot; id=&quot;form-select-one-select2&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Select Ubuntu Family --&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;Ubuntu&lt;/option&gt;
+  ...
+&lt;/select&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Wrapped Select One with Select2</h4>
+          <p>
+          Give <code>afw-select2-wrapper</code> to outer element class attribute.<br />
+          </p>
+          <div class="form-group afw-select2-wrapper">
+            <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
+              <option value="">-- Select Ubuntu Family --</option>
+              <option value="1">Ubuntu</option>
+              <option value="2">Basix</option>
+              <option value="3">elementary OS</option>
+              <option value="4">Edubuntu</option>
+              <option value="5">Elbuntu</option>
+              <option value="6">Gobuntu</option>
+              <option value="7">Goobuntu</option>
+              <option value="8">Kubuntu</option>
+              <option value="9">Kona Linux</option>
+              <option value="10">LinuxBean</option>
+              <option value="11">Linux Mint</option>
+              <option value="12">Lubuntu</option>
+              <option value="13">nUbuntu</option>
+              <option value="14">Peppermint</option>
+              <option value="15">Ubuntu Christian Edition</option>
+              <option value="16">Ubuntu Lite</option>
+              <option value="17">Ubuntu Studio</option>
+              <option value="18">Xubuntu</option>
+              <option value="19">zUbuntu</option>
+              <option value="20">巫女 GNYO/Linux </option>
+            </select>
           </div>
+          <pre>&lt;div class=&quot;form-group form-inline afw-select2-wrapper&quot;&gt;
+  &lt;label for=&quot;form-wrapped-select-one-select2&quot;&gt;Wrapped Select One with Select2&lt;/label&gt;
+  &lt;select name=&quot;form-ubuntu-family-wrapped&quot; class=&quot;form-control&quot; id=&quot;form-wrapped-select-one-select2&quot;&gt;
+    ...
+  &lt;/select&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Select One with Select2 thru Ajax</h4>
+          <p>
+          Give <code>select2 afw-select2-ajax</code> values to class attribute of target select element. And you can specify URL for Ajax request by <code>data-ajax--url</code> attribute.
+          </p>
+          <select name="form-rhel-family" class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
+            <option value="1" selected="selected">CentOS</option>
+          </select>
+          <pre>&lt;select name=&quot;form-rhel-family&quot; class=&quot;form-control select2 afw-select2-ajax&quot; data-ajax--url=&quot;sample/select2.php&quot; id=&quot;form-select-one-select2-ajax&quot;&gt;
+  &lt;option value=&quot;1&quot; selected=&quot;selected&quot;&gt;CentOS&lt;/option&gt;
+&lt;/select&gt;</pre>
+        </div>
+
+        <div class="sample">
+          <h4>Wrapped Select One with Select2 thru Ajax</h4>
+          <div class="form-group afw-select2-ajax-wrapper" data-ajax--url="sample/select2.php">
+            <select name="form-rhel-family-wrapped" class="form-control" id="form-wrapped-select-one-select2-ajax">
+              <option value="1" selected="selected">CentOS</option>
+            </select>
+            <pre>&lt;div class=&quot;form-group afw-select2-ajax-wrapper&quot; data-ajax--url=&quot;sample/select2.php&quot;&gt;
+  &lt;select name=&quot;form-rhel-family-wrapped&quot; class=&quot;form-control&quot; data-ajax--url=&quot;sample/select2.php&quot; id=&quot;form-wrapped-select-one-select2-ajax&quot;&gt;
+    &lt;option value=&quot;1&quot; selected=&quot;selected&quot;&gt;CentOS&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </div>
+
+        <div class="sample">
+          <h4>Select Multiple</h4>
+          <select multiple name="form-multiple" class="form-control" id="form-select-multiple">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
 
       </div>
 
@@ -509,128 +635,6 @@
       <h3>General Form Format</h3>
 
       <form method="post" action="./" class="disable-enter-key">
-        <h3>Select boxes showcase</h3>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group form-inline">
-              <label for="form-select-one">Select One</label>
-              <select name="form-select" class="form-control" id="form-select-one">
-                <option value="">-- Select --</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-            <pre>&lt;select name=&quot;form-select&quot; class=&quot;form-control&quot; id=&quot;form-select-one&quot;&gt;
-  &lt;option value=&quot;&quot;&gt;-- Select --&lt;/option&gt;
-  &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
-  ...
-&lt;/select&gt;</pre>
-
-            <div class="form-group form-inline">
-              <label for="form-select-one-select2">Select One with Select2</label>
-              <select name="form-ubuntu-family" class="form-control afw-select2" id="form-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
-              </select>
-            </div>
-            <pre>&lt;select name=&quot;form-ubuntu-family&quot; class=&quot;form-control afw-select2&quot; id=&quot;form-select-one-select2&quot;&gt;
-  &lt;option value=&quot;&quot;&gt;-- Select Ubuntu Family --&lt;/option&gt;
-  &lt;option value=&quot;1&quot;&gt;Ubuntu&lt;/option&gt;
-  ...
-&lt;/select&gt;</pre>
-            <div class="form-group form-inline afw-select2-wrapper">
-              <label for="form-wrapped-select-one-select2">Wrapped Select One with Select2</label>
-              <select name="form-ubuntu-family-wrapped" class="form-control" id="form-wrapped-select-one-select2">
-                <option value="">-- Select Ubuntu Family --</option>
-                <option value="1">Ubuntu</option>
-                <option value="2">Basix</option>
-                <option value="3">elementary OS</option>
-                <option value="4">Edubuntu</option>
-                <option value="5">Elbuntu</option>
-                <option value="6">Gobuntu</option>
-                <option value="7">Goobuntu</option>
-                <option value="8">Kubuntu</option>
-                <option value="9">Kona Linux</option>
-                <option value="10">LinuxBean</option>
-                <option value="11">Linux Mint</option>
-                <option value="12">Lubuntu</option>
-                <option value="13">nUbuntu</option>
-                <option value="14">Peppermint</option>
-                <option value="15">Ubuntu Christian Edition</option>
-                <option value="16">Ubuntu Lite</option>
-                <option value="17">Ubuntu Studio</option>
-                <option value="18">Xubuntu</option>
-                <option value="19">zUbuntu</option>
-                <option value="20">巫女 GNYO/Linux </option>
-              </select>
-            </div>
-            Give <code>afw-select2-wrapper</code> to outer element class attribute.<br />
-            <pre>&lt;div class=&quot;form-group form-inline afw-select2-wrapper&quot;&gt;
-  &lt;label for=&quot;form-wrapped-select-one-select2&quot;&gt;Wrapped Select One with Select2&lt;/label&gt;
-  &lt;select name=&quot;form-ubuntu-family-wrapped&quot; class=&quot;form-control&quot; id=&quot;form-wrapped-select-one-select2&quot;&gt;
-    ...
-  &lt;/select&gt;
-&lt;/div&gt;</pre>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="form-select-one-select2-ajax">Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family" class="form-control select2 afw-select2-ajax" data-ajax--url="sample/select2.php" id="form-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-              <pre>&lt;select name=&quot;form-rhel-family&quot; class=&quot;form-control select2 afw-select2-ajax&quot; data-ajax--url=&quot;sample/select2.php&quot; id=&quot;form-select-one-select2-ajax&quot;&gt;
-  &lt;option value=&quot;1&quot; selected=&quot;selected&quot;&gt;CentOS&lt;/option&gt;
-&lt;/select&gt;</pre>
-              Give <code>select2 afw-select2-ajax</code> values to class attribute of target select element. And you can specify URL for Ajax request by <code>data-ajax--url</code> attribute.
-            </div>
-
-            <div class="form-group afw-select2-ajax-wrapper" data-ajax--url="sample/select2.php">
-              <label for="form-wrapped-select-one-select2-ajax">Wrapped Select One with Select2 thru Ajax</label>
-              <select name="form-rhel-family-wrapped" class="form-control" id="form-wrapped-select-one-select2-ajax">
-                <option value="1" selected="selected">CentOS</option>
-              </select>
-              <pre>&lt;div class=&quot;form-group afw-select2-ajax-wrapper&quot; data-ajax--url=&quot;sample/select2.php&quot;&gt;
-  &lt;select name=&quot;form-rhel-family-wrapped&quot; class=&quot;form-control&quot; data-ajax--url=&quot;sample/select2.php&quot; id=&quot;form-wrapped-select-one-select2-ajax&quot;&gt;
-    &lt;option value=&quot;1&quot; selected=&quot;selected&quot;&gt;CentOS&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/div&gt;</pre>
-            </div>
-
-            <div class="form-group">
-              <label for="form-select-multiple">Select Multiple</label>
-              <select multiple name="form-multiple" class="form-control" id="form-select-multiple">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
         <h3>Date and time picker showcase</h3>
         <div class="row">
           <div class="col-md-6">
