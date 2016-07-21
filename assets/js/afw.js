@@ -119,12 +119,25 @@
     Form: {
       init: function () {
         var config = AfwConfig.Form;
+        this.initResetButton(config);
         this.initDateTimePicker(config.DateTimePicker);
         this.initEnterSubmittion();
         this.initLoginForm(config.Login);
         this.initSelect2(config.Select2);
         this.initSelect2(config.Select2Ajax);
         this.initTextAreaTinyMce(config.TinyMce);
+      },
+      initResetButton: function (config) {
+        jQuery(config.resetButtonExpr).click(function () {
+          jQuery(this.form).find(':input').each(function () {
+            var elem = jQuery(this);
+            if (elem.hasClass(config.Select2.className) || elem.hasClass(config.Select2Ajax.className)) {
+              elem.select2('val', '');
+            } else if (jQuery.inArray(this.type, ['button', 'reset', 'submit']) < 0) {
+              elem.val('');
+            }
+          });
+        });
       },
       initDateTimePicker: function (config) {
         jQuery('.' + config.wrapperClassName).each(function () {
@@ -239,6 +252,7 @@
           });
         }
         elem.on('shown.bs.modal', function () {
+          Afw.Window.flushCookieReload('force-cookie-reload');
           var template = jQuery(this),
             contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
             headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
@@ -250,6 +264,12 @@
           }
         });
         elem.on('hidden.bs.modal', function () {
+          if (!cookieReload) {
+            var forceCookieReload = Cookies.get('force-cookie-reload');
+            if (forceCookieReload) {
+              cookieReload = 'force-cookie-reload';
+            }
+          }
           if (cookieReload) {
             Afw.Window.startLoading();
             if (Afw.Window.flushCookieReload(cookieReload)) {
@@ -373,6 +393,9 @@
           featureParams.push(i + '=' + features[i]);
         }
         window.open(url, name, featureParams.join(','));
+      },
+      reserveForceCookieReload: function () {
+        Cookies.set('force-cookie-reload', 1);
       },
       reserveCookieReload: function (name) {
         Cookies.set(name, 1);
