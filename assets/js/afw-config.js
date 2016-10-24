@@ -135,25 +135,3 @@ var AfwConfig = {
 };
 Object.freeze(AfwConfig);
 
-(function () {
-  jQuery(document).ready(function () {
-    Afw.Date.init();
-    Afw.Form.init();
-    Afw.Modal.init();
-    Afw.Pagination.init();
-    Afw.Table.init();
-    Afw.Tooltip.init();
-    Afw.Window.init();
-
-    console.log(Afw.Language.getText('TEXT1'));
-    console.log(Afw.Language.sprintf('TEXT2', 2));
-    //Cookies.remove('test');
-    //console.log(Cookies.get('test'));
-    //Cookies.set('test', 1);
-
-    $('#main-menu').smartmenus({
-      subMenusSubOffsetX: 1,
-      subMenusSubOffsetY: -8
-    });
-  });
-})();

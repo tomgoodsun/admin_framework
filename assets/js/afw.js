@@ -1,5 +1,5 @@
-(function () {
-  Afw = AdminFramework = {
+(function ($, AfwConfig, window) {
+  window.Afw = window.AdminFramework = {
     Date: {
       init: function () {
         var config = AfwConfig.Date;
@@ -11,12 +11,12 @@
           currentTime += 1000;
           var date = new Date(currentTime);
           //console.log(date.toString());
-          jQuery('.afw-realtime-clock').html(date.toLocaleString());
+          $('.afw-realtime-clock').html(date.toLocaleString());
           setTimeout(countTime, 1000);
         };
         setTimeout(countTime, 1000);
         var retrieveServerDate = function () {
-          jQuery.ajax({
+          $.ajax({
             url: config.url,
             dataType: 'json'
           }).success(function(data) {
@@ -46,7 +46,7 @@
           if (data === undefined) {
             data = {};
           } else {
-            data = jQuery.parseJSON(data);
+            data = $.parseJSON(data);
           }
         } else {
           if (data === undefined) {
@@ -128,38 +128,38 @@
         this.initTextAreaTinyMce(config.TinyMce);
       },
       initResetButton: function (config) {
-        jQuery(config.resetButtonExpr).click(function () {
-          jQuery(this.form).find(':input').each(function () {
-            var elem = jQuery(this);
+        $(config.resetButtonExpr).click(function () {
+          $(this.form).find(':input').each(function () {
+            var elem = $(this);
             if (elem.hasClass(config.Select2.className) || elem.hasClass(config.Select2Ajax.className)) {
               elem.select2('val', '');
-            } else if (jQuery.inArray(this.type, ['button', 'reset', 'submit']) < 0) {
+            } else if ($.inArray(this.type, ['button', 'reset', 'submit']) < 0) {
               elem.val('');
             }
           });
         });
       },
       initDateTimePicker: function (config) {
-        jQuery('.' + config.wrapperClassName).each(function () {
-          var elem = jQuery(this);
+        $('.' + config.wrapperClassName).each(function () {
+          var elem = $(this);
           elem.find('input').each(function () {
-            var type = jQuery(this).prop('type');
+            var type = $(this).prop('type');
             if (type == 'date' || type == 'text') {
               if (Afw.Utility.hasDataAttr(elem, 'options')) {
                 var options = Afw.Utility.getDataAttr(elem, 'options');
-                Afw.Utility.setDataAttr(jQuery(this), 'options', options);
+                Afw.Utility.setDataAttr($(this), 'options', options);
               }
-              Afw.Utility.addClass(jQuery(this), config.className);
+              Afw.Utility.addClass($(this), config.className);
             }
           });
         });
-        jQuery('.' + config.className).each(function () {
-          var elem = jQuery(this),
+        $('.' + config.className).each(function () {
+          var elem = $(this),
             options = Afw.Utility.getDataAttr(elem, 'options');
-          options = jQuery.extend(options, AfwConfig.Form.DateTimePicker.options);
+          options = $.extend(options, AfwConfig.Form.DateTimePicker.options);
           elem.datetimepicker(options);
         });
-        jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
+        $(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
           if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
             return false;
           }
@@ -167,7 +167,7 @@
         });
       },
       initEnterSubmittion: function () {
-        jQuery(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
+        $(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
           if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
             return false;
           }
@@ -175,23 +175,23 @@
         });
       },
       initLoginForm: function (config) {
-        jQuery(config.expr).find('input').first().focus();
+        $(config.expr).find('input').first().focus();
       },
       initSelect2: function (config) {
-        jQuery(config.wrapperExpr).each(function () {
-          var ajaxUrl = jQuery(this).data('ajax--url');
-          jQuery(this).find('select').each(function () {
-            Afw.Utility.addClass(jQuery(this), config.className);
+        $(config.wrapperExpr).each(function () {
+          var ajaxUrl = $(this).data('ajax--url');
+          $(this).find('select').each(function () {
+            Afw.Utility.addClass($(this), config.className);
             if (ajaxUrl !== undefined) {
-              jQuery(this).data('ajax--url', ajaxUrl);
+              $(this).data('ajax--url', ajaxUrl);
             }
           });
         });
-        jQuery('select.' + config.className).select2(config.options);
+        $('select.' + config.className).select2(config.options);
       },
       initTextAreaTinyMce: function (config) {
-        jQuery(config.wrapperExpr).each(function () {
-          Afw.Utility.addClass(jQuery(this), config.className);
+        $(config.wrapperExpr).each(function () {
+          Afw.Utility.addClass($(this), config.className);
         });
         config.options.selector = '.' + config.className;
         tinymce.init(config.options);
@@ -213,26 +213,26 @@
         return title;
       },
       initDefaultModal: function () {
-        jQuery('.afw-modal').click(function() {
-          var targetExpr = '#' + jQuery(this).attr('data-modal-element');
-            title = Afw.Modal.detectTitle(jQuery(this));
+        $('.afw-modal').click(function() {
+          var targetExpr = '#' + $(this).attr('data-modal-element');
+            title = Afw.Modal.detectTitle($(this));
           if (title) {
-            jQuery(targetExpr).find('.modal-title').html(title);
+            $(targetExpr).find('.modal-title').html(title);
           }
-          jQuery(targetExpr).modal({show:true});
+          $(targetExpr).modal({show:true});
           return false;
         });
       },
       initIframeModal: function () {
-        jQuery('.afw-modal-iframe').click(function() {
-          var origin = jQuery(this),
+        $('.afw-modal-iframe').click(function() {
+          var origin = $(this),
             title = Afw.Modal.detectTitle(origin);
           Afw.Modal.openIframeModal(origin.prop('href'), title, origin, origin.hasClass('afw-modal-use-iframe-title'));
           return false;
         });
       },
       openIframeModal: function (url, title, origin, useContentTitle) {
-        var elem = jQuery('#afw-template-modal-iframe'),
+        var elem = $('#afw-template-modal-iframe'),
           iframe = elem.find('iframe');
         if (origin) {
           var cookieReload = Afw.Utility.getDataAttr(origin, 'cookie-reload');
@@ -244,8 +244,8 @@
         if (useContentTitle) {
           iframe.on('load', function () {
             try {
-              var title = jQuery(this).contents()[0].title;
-              jQuery('#afw-template-modal-iframe .modal-title').html(title);
+              var title = $(this).contents()[0].title;
+              $('#afw-template-modal-iframe .modal-title').html(title);
             } catch (e) {
               console.log(e);
             }
@@ -253,7 +253,7 @@
         }
         elem.on('shown.bs.modal', function () {
           Afw.Window.flushCookieReload('force-cookie-reload');
-          var template = jQuery(this),
+          var template = $(this),
             contentHeight = Afw.Utility.getHeight(template.find('.modal-content')),
             headerHeight = Afw.Utility.getHeight(template.find('.modal-header')),
             height = contentHeight - headerHeight;
@@ -283,11 +283,11 @@
         return elem;
       },
       initAutoIframeModal: function () {
-        jQuery('.afw-auto-modal-iframe').click(function() {
+        $('.afw-auto-modal-iframe').click(function() {
           var options = {
-            'url': Afw.Utility.getDataAttr(jQuery(this), 'url'),
-            'name': Afw.Utility.getDataAttr(jQuery(this), 'name'),
-            'useContentTitle': jQuery(this).hasClass('afw-modal-use-iframe-title')
+            'url': Afw.Utility.getDataAttr($(this), 'url'),
+            'name': Afw.Utility.getDataAttr($(this), 'name'),
+            'useContentTitle': $(this).hasClass('afw-modal-use-iframe-title')
           };
           Cookies.set('auto-modal-iframe', JSON.stringify(options));
           return true;
@@ -308,8 +308,8 @@
         this.initActive();
       },
       initActive: function () {
-        jQuery('.pagination li a').each(function() {
-          var elem = jQuery(this);
+        $('.pagination li a').each(function() {
+          var elem = $(this);
           if (elem.find('.active').length > 0) {
             elem.parent('li').addClass('active');
           }
@@ -322,8 +322,8 @@
         this.initSorter();
       },
       initSorter: function () {
-        jQuery('.table a.sort').each(function (index) {
-          var elem = jQuery(this);
+        $('.table a.sort').each(function (index) {
+          var elem = $(this);
           if (elem.hasClass('current')) {
             elem.removeClass('current');
             elem.wrap('<span class="current"></span>');
@@ -338,7 +338,7 @@
         this.initTooltip();
       },
       initTooltip: function () {
-        jQuery('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
       }
     },
 
@@ -349,14 +349,14 @@
         this.initAutoOpenerAction();
       },
       startLoading: function () {
-        $('#afw-full-screen').css({height: jQuery(window).height()}).fadeIn();
+        $('#afw-full-screen').css({height: $(window).height()}).fadeIn();
       },
       endLoading: function () {
         $('#afw-full-screen').fadeOut();
       },
       initOpener: function () {
-        jQuery('a.afw-window').click(function() {
-          var elem = jQuery(this),
+        $('a.afw-window').click(function() {
+          var elem = $(this),
             url = elem.prop('href'),
             name = elem.prop('name'),
             features = Afw.Utility.getDataAttr(elem, 'options');
@@ -365,8 +365,8 @@
         });
       },
       initAutoOpener: function () {
-        jQuery('.afw-auto-window').click(function() {
-          var elem = jQuery(this),
+        $('.afw-auto-window').click(function() {
+          var elem = $(this),
             options = {
               'url': Afw.Utility.getDataAttr(elem, 'url'),
               'name': Afw.Utility.getDataAttr(elem, 'name'),
@@ -407,4 +407,26 @@
       }
     }
   };
-})();
+
+  $(window.document).ready(function () {
+    Afw.Date.init();
+    Afw.Form.init();
+    Afw.Modal.init();
+    Afw.Pagination.init();
+    Afw.Table.init();
+    Afw.Tooltip.init();
+    Afw.Window.init();
+
+    console.log(Afw.Language.getText('TEXT1'));
+    console.log(Afw.Language.sprintf('TEXT2', 2));
+    //Cookies.remove('test');
+    //console.log(Cookies.get('test'));
+    //Cookies.set('test', 1);
+
+    $('#main-menu').smartmenus({
+      subMenusSubOffsetX: 1,
+      subMenusSubOffsetY: -8
+    });
+  });
+})(window.Zepto || window.jQuery, AfwConfig, window);
+
