@@ -381,18 +381,19 @@
         if (options) {
           options = JSON.parse(options);
           Cookies.remove('auto-window-open');
-          Afw.Window.open(options.url, options.name, options.features);
+          return Afw.Window.open(options.url, options.name, options.features);
         }
+        return null;
       },
       open: function (url, name, features) {
-        if (name) {
+        if (!name) {
           name = null;
         }
         var featureParams = [];
         for (var i in features) {
           featureParams.push(i + '=' + features[i]);
         }
-        window.open(url, name, featureParams.join(','));
+        return window.open(url, name, featureParams.join(','));
       },
       reserveForceCookieReload: function () {
         Cookies.set('force-cookie-reload', 1);
