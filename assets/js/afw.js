@@ -156,7 +156,7 @@
         $('.' + config.className).each(function () {
           var elem = $(this),
             options = Afw.Utility.getDataAttr(elem, 'options');
-          options = $.extend(options, AfwConfig.Form.DateTimePicker.options);
+          options = $.extend(AfwConfig.Form.DateTimePicker.options, options);
           elem.datetimepicker(options);
         });
         $(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
