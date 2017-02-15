@@ -1,10 +1,22 @@
 (function ($, AfwConfig, window) {
   window.Afw = window.AdminFramework = {
+    /**
+     * Afw.Date
+     */
     Date: {
+      /**
+       * Afw.Date.init()
+       */
       init: function () {
         var config = AfwConfig.Date;
         this.initRealTimeClock(config);
       },
+
+      /**
+       * Afw.Date.initRealTimeClock()
+       *
+       * @param {Object} config
+       */
       initRealTimeClock: function (config) {
         var currentTime = Date.now();
         var countTime = function () {
@@ -27,12 +39,29 @@
         retrieveServerDate();
       }
     },
+
+    /**
+     * Afw.Utility
+     */
     Utility: {
+      /**
+       * Afw.Utility.addClass()
+       *
+       * @param {jQuery} elem
+       * @param {string} className
+       */
       addClass: function (elem, className) {
         if (!elem.hasClass(className)) {
           elem.addClass(className);
         }
       },
+
+      /**
+       * Afw.Utility.addClass()
+       *
+       * @param {jQuery} elem
+       * @param {Object} props
+       */
       calcStyle: function (elem, props) {
         var result = 0;
         for (var i = 0, len = props.length; i < len; i++) {
@@ -40,6 +69,13 @@
         }
         return result;
       },
+
+      /**
+       * Afw.Utility.getDataAttr()
+       *
+       * @param {jQuery} elem
+       * @param {string} attrName
+       */
       getDataAttr: function (elem, attrName) {
         var data = elem.attr('data-afw-' + attrName);
         if (attrName == 'options') {
@@ -55,6 +91,13 @@
         }
         return data;
       },
+
+      /**
+       * Afw.Utility.hasDataAttr()
+       *
+       * @param {jQuery} elem
+       * @param {string} attrName
+       */
       hasDataAttr: function (elem, attrName) {
         var data = elem.attr('data-afw-' + attrName);
         if (data === undefined) {
@@ -62,12 +105,27 @@
         }
         return true;
       },
+
+      /**
+       * Afw.Utility.setDataAttr()
+       *
+       * @param {jQuery} elem
+       * @param {string} attrName
+       * @param {mixed} data
+       */
       setDataAttr: function (elem, attrName, data) {
         if (typeof data === 'object') {
           data = JSON.stringify(data);
         }
         elem.attr('data-afw-' + attrName, data);
       },
+
+      /**
+       * Afw.Utility.getWidth()
+       *
+       * @param {jQuery} elem
+       * @return {int}
+       */
       getWidth: function (elem) {
         var props = [
           'margin-left',
@@ -80,6 +138,13 @@
         ];
         return this.calcStyle(elem, props);
       },
+
+      /**
+       * Afw.Utility.getHeight()
+       *
+       * @param {jQuery} elem
+       * @return {int}
+       */
       getHeight: function (elem) {
         var props = [
           'margin-top',
@@ -94,7 +159,16 @@
       }
     },
 
+    /**
+     * Afw.Language
+     */
     Language: {
+      /**
+       * Afw.Language._()
+       *
+       * @param {string} label
+       * @return {string}
+       */
       _: function (label) {
         if (window.languages) {
           if (languages[label]) {
@@ -103,9 +177,23 @@
         }
         return '';
       },
+
+      /**
+       * Afw.Language.getText()
+       *
+       * @param {string} label
+       * @return {string}
+       */
       getText: function (label) {
         return Afw.Language._(label);
       },
+
+      /**
+       * Afw.Language.sprintf()
+       *
+       * @param {string} label...
+       * @return {string}
+       */
       sprintf: function () {
         var args = [].slice.apply(arguments);
         if (args.length === 0) {
@@ -116,7 +204,13 @@
       }
     },
 
+    /**
+     * Afw.Form
+     */
     Form: {
+      /**
+       * Afw.Form.init()
+       */
       init: function () {
         var config = AfwConfig.Form;
         this.initResetButton(config);
@@ -127,6 +221,12 @@
         this.initSelect2(config.Select2Ajax);
         this.initTextAreaTinyMce(config.TinyMce);
       },
+
+      /**
+       * Afw.Form.initResetButton()
+       *
+       * @param {object} config
+       */
       initResetButton: function (config) {
         $(config.resetButtonExpr).click(function () {
           $(this.form).find(':input').each(function () {
@@ -139,6 +239,12 @@
           });
         });
       },
+
+      /**
+       * Afw.Form.initDateTimePicker()
+       *
+       * @param {object} config
+       */
       initDateTimePicker: function (config) {
         $('.' + config.wrapperClassName).each(function () {
           var elem = $(this);
@@ -166,6 +272,12 @@
           return true;
         });
       },
+
+      /**
+       * Afw.Form.initEnterSubmittion()
+       *
+       * @return {boolean}
+       */
       initEnterSubmittion: function () {
         $(AfwConfig.Form.disableEnterSubmissionClassName).on('keydown', function(e) {
           if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
@@ -174,9 +286,21 @@
           return true;
         });
       },
+
+      /**
+       * Afw.Form.initLoginForm()
+       *
+       * @param {object} config
+       */
       initLoginForm: function (config) {
         $(config.expr).find('input').first().focus();
       },
+
+      /**
+       * Afw.Form.initSelect2()
+       *
+       * @param {object} config
+       */
       initSelect2: function (config) {
         $(config.wrapperExpr).each(function () {
           var ajaxUrl = $(this).data('ajax--url');
@@ -189,6 +313,12 @@
         });
         $('select.' + config.className).select2(config.options);
       },
+
+      /**
+       * Afw.Form.initTextAreaTinyMce()
+       *
+       * @param {object} config
+       */
       initTextAreaTinyMce: function (config) {
         $(config.wrapperExpr).each(function () {
           Afw.Utility.addClass($(this), config.className);
@@ -200,9 +330,9 @@
 
     Modal: {
       init: function () {
-        this.initDefaultModal();
-        this.initIframeModal();
-        this.initAutoIframeModal();
+        this.initDefaultModal($('.afw-modal'));
+        this.initIframeModal($('.afw-modal-iframe'));
+        this.initAutoIframeModal($('.afw-auto-modal-iframe'));
         this.initAutoIframeModalAction();
       },
       detectTitle: function (elem) {
@@ -212,8 +342,8 @@
         }
         return title;
       },
-      initDefaultModal: function () {
-        $('.afw-modal').click(function() {
+      initDefaultModal: function (elem) {
+        elem.click(function() {
           var targetExpr = '#' + $(this).attr('data-modal-element');
             title = Afw.Modal.detectTitle($(this));
           if (title) {
@@ -223,8 +353,8 @@
           return false;
         });
       },
-      initIframeModal: function () {
-        $('.afw-modal-iframe').click(function() {
+      initIframeModal: function (elem) {
+        elem.click(function() {
           var origin = $(this),
             title = Afw.Modal.detectTitle(origin);
           Afw.Modal.openIframeModal(origin.prop('href'), title, origin, origin.hasClass('afw-modal-use-iframe-title'));
@@ -282,8 +412,8 @@
         elem.modal({show:true});
         return elem;
       },
-      initAutoIframeModal: function () {
-        $('.afw-auto-modal-iframe').click(function() {
+      initAutoIframeModal: function (elem) {
+        elem.click(function() {
           var options = {
             'url': Afw.Utility.getDataAttr($(this), 'url'),
             'name': Afw.Utility.getDataAttr($(this), 'name'),
@@ -344,8 +474,8 @@
 
     Window: {
       init: function () {
-        this.initOpener();
-        this.initAutoOpener();
+        this.initOpener($('a.afw-window'));
+        this.initAutoOpener($('.afw-auto-window'));
         this.initAutoOpenerAction();
       },
       startLoading: function () {
@@ -354,8 +484,8 @@
       endLoading: function () {
         $('#afw-full-screen').fadeOut();
       },
-      initOpener: function () {
-        $('a.afw-window').click(function() {
+      initOpener: function (elem) {
+        elem.click(function() {
           var elem = $(this),
             url = elem.prop('href'),
             name = elem.prop('name'),
@@ -364,8 +494,8 @@
           return false;
         });
       },
-      initAutoOpener: function () {
-        $('.afw-auto-window').click(function() {
+      initAutoOpener: function (elem) {
+        elem.click(function() {
           var elem = $(this),
             options = {
               'url': Afw.Utility.getDataAttr(elem, 'url'),
